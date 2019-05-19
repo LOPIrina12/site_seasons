@@ -1,0 +1,206 @@
+body, html {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0auto;
+}
+
+/*Все что связано с header*/
+.header-container {
+    display: flex;
+    height: 10%;
+    background-color:#1452ff;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    height: 100%;
+    /* background-color: wheat; */
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+ .p {
+     font-weight: bold;
+     color: beige;
+     
+     font-size: 30px;
+     font-style: normal;
+     
+    }
+.nav-wrapper {
+    display: flex;
+    width: 60%;
+    height: 100%;
+    /* background-color: aliceblue; */
+    flex-direction: row;
+    justify-content: center;
+}
+
+.nav-panel {
+    display: flex;
+    width: 33%;
+    height: 100%;
+    /* background-color: rebeccapurple; */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 19px;
+    color:white;
+
+}
+
+#nav {
+    background-color:  #1452ff;
+  
+}
+#nav li {
+    float: left;
+    list-style: none;   
+}
+#nav a {
+    display: block;
+    color: white;
+    font-size: 17px;
+    padding: 10px 25px;
+    text-decoration: none;
+  
+}
+
+
+/*Все что связано с content*/
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.foto {
+height: 80%;
+/* background-color: brown */
+
+}
+
+
+/*Все что связано с footer*/
+.footer-container {
+    display: flex;
+    height: 10%;
+    background-color: #1452ff;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#container-info {
+    float: left;
+    list-style: none; 
+      
+}
+
+#container-info a {
+    display: block;
+    color: white;
+    font-size: 20px;
+    /* padding: 10px 25px; */
+    text-decoration: none;
+  
+      
+}
+/* 
+#nav a:hover {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+#nav:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+ */
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    
+
+}
+
+.span {
+    float: left;
+    clear: left;
+    color: white;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/*Кнопка в header*/
+.but {
+    text-decoration: none;
+  outline: none;
+  display: inline-block;
+  padding: 20px 30px;
+  margin: 10px 20px;
+  position: relative;
+  color: white;
+  border: 1px solid rgba(255,255,255,.4);
+  background: none;
+  font-weight: 100;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.but:before,
+.but:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  box-sizing: border-box;
+}
+.but:before {
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  transition: 0s ease opacity .8s, .2s ease width .4s, .2s ease height .6s;
+}
+.but:after {
+  top: 0;
+  right: 0;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  transition: 0s ease opacity .4s, .2s ease width , .2s ease height .2s;
+}
+.but:hover:before,
+.but:hover:after{
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+}
+.but:hover:before {transition: 0s ease opacity 0s, .2s ease height, .2s ease width .2s;}
+.but:hover:after {transition: 0s ease opacity .4s, .2s ease height .4s , .2s ease width .6s;}
+.but:hover {background: rgba(255,255,255,.2);}
+
+.content1 {
+	
+	
+	background: #red;
+}
+
