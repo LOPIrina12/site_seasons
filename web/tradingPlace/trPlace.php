@@ -36,51 +36,64 @@
 ?>
 <!--Начало HTML кода-->
 <div class="content"><!--div контейнер для вывода контента сайта-->
-    <h1>Свободные помещения</h1><!--Заголовок страницы-->
+    
     <!--Если массив товаров не пустой, то выводим товары в таблице-->
-	<?php if($products): ?>
+	
     <!--Таблица товаров с подключенным классом стилей simple-table
         См стили в файле /assets/css/style.css-->
-	<table class="simple-table">
-		<tr>
-			<th>Код</th><!--Наименование столбца-->
-			<th>Номер торгового места</th>
-			<th>Площадь</th>
-            <th>Ед.изм.</th>
-			<th>Ставка</th>
-            <th>Ед.изм.</th>
-			<th>Арендовано</th>
-		</tr>
-		<?php foreach ($products as $product): ?><!--В цикле выводим список товаров-->
-			<tr><!--Строка таблицы HTML-->
-				<td>
-                    <!--Ссылка на карточку товара.
-                        Для каждого товара прописывается параметр id, который передается
-                        через браузерную строку. В файле /web/products/show.php он попадет
-                        в глобальный массив $_GET-->
-					
-                        <!--Выводим в ячейку таблицы Код товара на каждой итерации цикла-->
-						<?=$product->id_tradingPlace; ?>
-					
-				</td>
-                <!--Выводим в ячейку таблицы Наименование на каждой итерации цикла-->
-				<td>
-                   
-                        <?=$product->number_place; ?> 
-                    </a>
-                </td>
-                <!--Выводим в ячейку таблицы Модель на каждой итерации цикла-->
-				<td> <?=$product->size_square	; ?> </td>
-                <!--Выводим в ячейку таблицы Цену на каждой итерации цикла-->
-				<td> <?=$product->unit_measure; ?> </td>
-                <td> <?=$product->rate	; ?> </td>
-                <td> <?=$product->unit_measure_; ?> </td>
-                <td> <?=$product->rented; ?> </td>
-                
 
-			</tr>
-		<?php endforeach; ?><!--Закрываем тело цикла-->
-	</table><!--Конец таблицы-->
+    <div class="container">
+        <h1>Свободные помещения</h1><!--Заголовок страницы-->
+
+        <?php if($products): ?>
+
+        <div class="table">
+        <?php foreach ($products as $product): ?>
+            <div class="table-item">
+                <div class="table-item-body">
+                    <div class="table-item-info">
+                        <div class="table-row">
+                            <strong>Код</strong>    
+                            <span><?=$product->id_tradingPlace; ?></span>
+                        </div>
+                        <div class="table-row">
+                            <strong>Номер торгового места</strong>    
+                            <span><?=$product->number_place; ?></span>
+                        </div>
+                        <div class="table-row">
+                            <strong>Площадь</strong>    
+                            <span><?=$product->size_square	; ?></span>
+                        </div>
+                        <div class="table-row">
+                            <strong>Ед.изм</strong>    
+                            <span><?=$product->unit_measure; ?></span>
+                        </div>
+                        <div class="table-row">
+                            <strong>Ставка</strong>    
+                            <span><?=$product->rate	; ?></span>
+                        </div>
+                        <div class="table-row">
+                            <strong>Ед.изм.</strong>    
+                            <span><?=$product->unit_measure_; ?></span>
+                        </div>
+                        <div class="table-row">
+                            <strong>Арендовано</strong>    
+                            <span><?=$product->rented; ?></span>
+                        </div>
+                    </div>
+                    <div class="table-item-img" 
+                        style="background-image: url('http://stat.jcat.ru/images/orders/2018-02/02/a97b07092e0a1f1ebb2c70499aa6389f.jpg')">
+                    </div>
+                </div>
+                <div class="table-item-footer">
+                    <a href="#" class="button button-primary">Оставить заявку</a>
+                </div>
+                
+            </div>
+        <?php endforeach; ?>
+    </div>
+    </div>
+
     <?php else: ?><!--Если товаров нет-->
         <p>Товары не найдены</p>
 	<?php endif; ?><!--Закрываем условие проверки товаров-->
