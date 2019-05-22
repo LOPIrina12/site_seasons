@@ -81,8 +81,9 @@
                             <span><?=$product->rented; ?></span>
                         </div>
                     </div>
-                    <div class="table-item-img" 
-                        style="background-image: url('http://stat.jcat.ru/images/orders/2018-02/02/a97b07092e0a1f1ebb2c70499aa6389f.jpg')">
+                    <div class="table-item-img" >
+                    
+                        <img width="340px" height="230px" src="<?= url('/assets/img/tradingPlace/') . $product->image;?>">
                     </div>
                 </div>
                 <div class="table-item-footer">
