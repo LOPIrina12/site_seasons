@@ -39,6 +39,28 @@ body, html {
     color: #ffffff;
 }
 
+.button-submit {
+   display:flex;
+  justify-content:center;
+    
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background: none;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1;
+    width: 20%;
+    height:15%;
+     background-color: #FF8C19;
+    color: #ffffff;
+}
+.div-button-submit{
+    display: flex;
+    justify-content:flex-end;
+}
 /*Все что связано с header*/
 
 .header {
@@ -254,3 +276,104 @@ body, html {
 .table-item-footer {
     margin-top: 10px;
 }
+
+
+
+/*Стили для заявки на аренду*/
+
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+
+.arenda  h1 {
+    position: relative;
+    text-align: center;
+    margin: 50px 0;
+}
+
+ h1:before {
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 1px;
+    background-color: #dedede;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.test {
+    background-color: tomato;
+}
+
+form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+    box-shadow: 0 4px 20px rgba(0,0,0, 0.06);
+    border-radius: 5px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+
+
+form h2 {
+    font-size: 18px;
+}
+
+.form-row {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+
+.form-col-left {
+    width: 40%;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.form-col-right {
+    width: 60%;
+}
+
+label {
+    display: block;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.label-required {
+    position: relative;
+}
+
+.label-required:before {
+    position: absolute;
+    content: '*';
+    color: red;
+    width: 10px;
+    height: 10px;
+    top: -5px;
+    right: -10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid #dedede;
+    border-radius: 5px; 
+    outline: none;
+}
+
+input:focus {
+    box-shadow: 0 0 0 1px #6c9ae2;
+    border-color: #6c9ae2;
+}
+
+
