@@ -14,9 +14,19 @@ $num_app = 0;
 
 
 $db = new Db();
+//variable for a trading place
+
+$id ='';
+
+if($_GET['id']) {
+    $id= $_GET['id'];
+}
+echo $id;
 
 if($_POST) {
     if ($_POST['name_enterprise']) {
+        
+        
         $name_enterprise = $_POST['name_enterprise'];
         
         $ynp = $_POST['ynp'];
@@ -29,16 +39,21 @@ if($_POST) {
         ++ $num_app;
         $processed = 0;
         
-        $id_org = $db->setQuery("SELECT `id` FROM `organization` ORDER BY `id` DESC LIMIT 1");
+       /* $id_org = $db->setQuery("SELECT `id` FROM `organization` ORDER BY `id` DESC LIMIT 1");*/
       
-        echo $id_org;
+       
      
-        $db->setQuery("INSERT INTO `application` (`id_org`,`num_app`, `date_app`, `processed`) 
-        VALUES ('$id_org','$num_app', '$date_app', '$processed')");
+       
+        
         
         $db->setQuery("INSERT INTO `organization`(`name_org`, `ynp`, `adress`, `phone`,`e_mail`, `fio`) 
         VALUES ('$name_enterprise', '$ynp', '$adress', '$phone', '$e_mail','$fio' )");
         
+        $id_org = $db->lastId();
+         echo $id_org;
+        
+         $db->setQuery("INSERT INTO `application` (`id_org`,`num_app`, `date_app`, `processed`) 
+        VALUES ('$id_org','$num_app', '$date_app', '$processed')");
         $_SESSION['name_enterprise'] = $name_enterprise;
         $_SESSION['ynp'] = $ynp;
         $_SESSION['adress'] = $adress;
@@ -68,7 +83,9 @@ file_include('/layers/header.php', 'Заявка на аренду');
                             <p>Поля, отмеченные звездочкой, обязательны для заполнения.<p>
                         </div>
             </div>
-        
+            <?php if($id): ?>
+                <input type="hidden" name="torg-obj" value="<?= $id; ?>">
+            <?php endif; ?>
             <div class="form-row">
                         <div class="form-col-left">
                         <label for="name_enterprise" class="label-required">Название организации</label>

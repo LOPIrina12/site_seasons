@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="table-item-footer">
-                    <a href="<?=url('/web/application/applicationRent.php');?>" class="button button-primary">Оставить заявку</a>
+                    <a href="<?=url('/web/application/applicationRent.php?id=' . $product->id_tradingPlace);?>" class="button button-primary">Оставить заявку</a>
                 </div>
                 
             </div>

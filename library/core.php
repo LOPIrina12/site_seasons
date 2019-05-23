@@ -41,6 +41,7 @@ function url($path) {
 */
 function access($roles = array())
 {
+    
     if ($_SESSION && $_SESSION['login']) {// проверяем авторизацию
         if ($roles) {// если передан параметр роль
             foreach ($roles as $role) {// проходим в цикле массив ролей

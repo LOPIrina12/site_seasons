@@ -15,6 +15,7 @@
           $_SESSION['id'] = $user->id;
             $_SESSION['login'] = $user->login;
             $_SESSION['fio'] = $user->fio;
+            $_SESSION['role'] = $user->role;
             header('Location: ' . url('/web/admin'));// перенаправляем на домашнюю страницу
       } else {
           $error = 'Пользователь не найден. Возможно вы неправильно ввели логин/пароль';
