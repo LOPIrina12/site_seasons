@@ -18,6 +18,7 @@
             class="header" 
             style="background-image: url('http://elgibborsms.com/blog/wp-content/uploads/2018/01/how-independent-retailers-can-thrive-in-a-volatile-market.jpg')">
             <div class="container">
+            <!-- div навигация на сайте -->
                 <div class="header-container">
                     <a href="<?=url('/');?>" class="logo">SEASONS</a>
                     <div class="nav">
@@ -29,6 +30,23 @@
                     <div id="button-application">
                         <a href="<?=url('/web/tradingPlace/trPlace.php');?>" class="but">Свободные помещения</a>
                     </div>
+                    
+                    <div class="nav"><!--Div если пользователь  авторизован -->
+                        <?php if ($_SESSION && $_SESSION['login']):?>
+                        <a href="<?=url('web/admin.php'); ?>">
+                         <?= $_SESSION['fio'] ?><!--Фио авториз пользователя-->
+                        </a>
+                        <?php if ($_SESSION['role'] == 'admin') :?>
+                        <a href="<?=url('/web/auth/registry.php'); ?>">Добавить пользователя</a>
+                        <?php endif;?>
+                         <a href="<?=url('/web/auth/logout.php'); ?>">Выйти</a>
+                        <?php else:?><!--Для не авторизованных пользователей-->
+                        <a href="<?=url('/web/auth/login.php'); ?>">Личный кабинет</a>
+                        <?php endif;?>
+                         
+                    
+                    </div>
+                    
                 </div>
             </div>
         </header>

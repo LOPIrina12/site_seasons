@@ -10,24 +10,33 @@ $name_enterprise = ' ';
 $adress = ' ';
 $phone = ' ';
 $e_mail = ' ';
-$fio = ' ';
-$trading_profile = ' ';*/
+$fio = ' ';*/
+/*$processed = 0 ;*/
+
 $db = new Db();
 
-if($_GET) {
-    if ($_GET['name_enterprise']/* && $_POST['ynp'] && $_POST['adress'] &&
-    $_POST['phone'] && $_POST['e_mail'] && $_POST['fio'] && $_POST['trading_profile']*/) {
-        $name_enterprise = $_GET['name_enterprise'];
-        echo $name_enterprise;
-        die();
-       /* $ynp = $_POST['ynp'];
+if($_POST) {
+    if ($_POST['name_enterprise']) {
+        $name_enterprise = $_POST['name_enterprise'];
+        
+       /* die();*/
+        /*$ynp = $_POST['ynp'];
         $adress = $_POST['adress'];
         $phone = $_POST['phone'] ;
         $e_mail = $_POST['e_mail'];
-        $fio = $_POST['fio'];
-        $trading_profile = $_POST['trading_profile'];*/
-        /*$db->setQuery("INSERT INTO `application` (`name_enterprise`) VALUES ('$name_enterprise ')");
-        $_SESSION['name_enterprise'] = $name_enterprise;*/
+        $fio = $_POST['fio'];*/
+       
+      
+        $db->setQuery("INSERT INTO `application`(`name_enterprise`) 
+        VALUES ('$name_enterprise')");
+        
+        $_SESSION['name_enterprise'] = $name_enterprise;
+       /* $_SESSION['ynp'] = $ynp;
+        $_SESSION['adress'] = $adress;
+        $_SESSION['phone'] = $phone;
+        $_SESSION['e_mail'] = $e_mail;
+        $_SESSION['fio'] = $fio;
+        */
    
     }
     
@@ -43,7 +52,7 @@ file_include('/layers/header.php', 'Заявка на аренду');
   <div class="container">
     <div class="arenda">
     <h1>Заявка на аренду</h1>
-      <form action="<?=url('/web/application/applicationRent.php');?>" method="GET" >
+      <form action="<?=url('/web/application/applicationRent.php');?>" method="POST" >
            <div class="form-row">
                         <div class="form-col-left"></div>
                         <div class="form-col-right">
@@ -56,12 +65,12 @@ file_include('/layers/header.php', 'Заявка на аренду');
                         <label for="name_enterprise" class="label-required">Название организации</label>
                         </div>
                         <div class="form-col-right">
-                            <input type="text" name="name_enterprise" id="name_enterprise">
+                            <input type="text" name="name_enterprise">
                         </div>
                         
             </div> 
         
-            <div class="form-row">
+          <!--  <div class="form-row">
                        
                         <div class="form-col-left">
                         <label for="ynp" class="label-required">УНП</label>
@@ -89,7 +98,7 @@ file_include('/layers/header.php', 'Заявка на аренду');
                         <label for="e-mail" class="label-required">Почтовый ящик</label>
                         </div>
                         <div class="form-col-right">
-                            <input type="text" name="e-mail" id="e-mail">
+                            <input type="text" name="e_mail" id="e-mail">
                         </div>
                         
             </div> 
@@ -103,7 +112,7 @@ file_include('/layers/header.php', 'Заявка на аренду');
                             <input type="text" name="fio" id="fio">
                         </div>
                         
-            </div> 
+            </div> -->
            
            <div class="div-button-submit" >
                 <button type="submit" class="button-submit">Отправить</button> 

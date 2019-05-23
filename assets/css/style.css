@@ -255,7 +255,7 @@ body, html {
 
 .table-row {
     display: flex;
-    padding: 7px 0;
+    padding: 15px 0;
     border-bottom: 1px solid #eee; 
     font-size: 14px;
 }

@@ -31,4 +31,6 @@ function url($path) {
 	$url = 'http://' . $_SERVER["HTTP_HOST"];
 	return $url . subdomain() . $path;
 }
+
+
 ?>

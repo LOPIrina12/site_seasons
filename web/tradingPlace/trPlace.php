@@ -62,24 +62,24 @@
                         </div>
                         <div class="table-row">
                             <strong>Площадь</strong>    
-                            <span><?=$product->size_square	; ?></span>
+                            <span><?=$product->size_square . " " .	$product->unit_measure; ?></span>
                         </div>
-                        <div class="table-row">
+                        <!--<div class="table-row">
                             <strong>Ед.изм</strong>    
                             <span><?=$product->unit_measure; ?></span>
-                        </div>
+                        </div>-->
                         <div class="table-row">
                             <strong>Ставка</strong>    
-                            <span><?=$product->rate	; ?></span>
+                            <span><?=$product->rate . " " . $product->unit_measure_ 	; ?></span>
                         </div>
-                        <div class="table-row">
+                       <!-- <div class="table-row">
                             <strong>Ед.изм.</strong>    
                             <span><?=$product->unit_measure_; ?></span>
-                        </div>
-                        <div class="table-row">
+                        </div>-->
+                       <!-- <div class="table-row">
                             <strong>Арендовано</strong>    
                             <span><?=$product->rented; ?></span>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="table-item-img" >
                     
