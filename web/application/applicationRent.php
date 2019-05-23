@@ -1,17 +1,17 @@
 <?php
 
- include '../../library/core.php';
+include '../../library/core.php';
 
-
- file_include('/library/Db.php');
+file_include('/library/Db.php');
 
 $name_enterprise = ' ';
-/*$ynp = ' ';
+$ynp = ' ';
 $adress = ' ';
 $phone = ' ';
 $e_mail = ' ';
-$fio = ' ';*/
-/*$processed = 0 ;*/
+$fio = ' ';
+$num_app = 0;
+
 
 $db = new Db();
 
@@ -19,24 +19,33 @@ if($_POST) {
     if ($_POST['name_enterprise']) {
         $name_enterprise = $_POST['name_enterprise'];
         
-       /* die();*/
-        /*$ynp = $_POST['ynp'];
+        $ynp = $_POST['ynp'];
         $adress = $_POST['adress'];
         $phone = $_POST['phone'] ;
         $e_mail = $_POST['e_mail'];
-        $fio = $_POST['fio'];*/
-       
+        $fio = $_POST['fio'];
+        
+        $date_app = date('Y-m-d');
+        ++ $num_app;
+        $processed = 0;
+        
+        $id_org = $db->setQuery("SELECT `id` FROM `organization` ORDER BY `id` DESC LIMIT 1");
       
-        $db->setQuery("INSERT INTO `application`(`name_enterprise`) 
-        VALUES ('$name_enterprise')");
+        echo $id_org;
+     
+        $db->setQuery("INSERT INTO `application` (`id_org`,`num_app`, `date_app`, `processed`) 
+        VALUES ('$id_org','$num_app', '$date_app', '$processed')");
+        
+        $db->setQuery("INSERT INTO `organization`(`name_org`, `ynp`, `adress`, `phone`,`e_mail`, `fio`) 
+        VALUES ('$name_enterprise', '$ynp', '$adress', '$phone', '$e_mail','$fio' )");
         
         $_SESSION['name_enterprise'] = $name_enterprise;
-       /* $_SESSION['ynp'] = $ynp;
+        $_SESSION['ynp'] = $ynp;
         $_SESSION['adress'] = $adress;
         $_SESSION['phone'] = $phone;
         $_SESSION['e_mail'] = $e_mail;
         $_SESSION['fio'] = $fio;
-        */
+        
    
     }
     
@@ -70,7 +79,7 @@ file_include('/layers/header.php', 'Заявка на аренду');
                         
             </div> 
         
-          <!--  <div class="form-row">
+            <div class="form-row">
                        
                         <div class="form-col-left">
                         <label for="ynp" class="label-required">УНП</label>
@@ -88,6 +97,17 @@ file_include('/layers/header.php', 'Заявка на аренду');
                         </div>
                         <div class="form-col-right">
                             <input type="text" name="adress" id="adress">
+                        </div>
+                        
+            </div> 
+            
+              <div class="form-row">
+                       
+                        <div class="form-col-left">
+                        <label for="adress" class="label-required">Телефон</label>
+                        </div>
+                        <div class="form-col-right">
+                            <input type="text" name="phone" id="phone">
                         </div>
                         
             </div> 
@@ -112,7 +132,7 @@ file_include('/layers/header.php', 'Заявка на аренду');
                             <input type="text" name="fio" id="fio">
                         </div>
                         
-            </div> -->
+            </div> 
            
            <div class="div-button-submit" >
                 <button type="submit" class="button-submit">Отправить</button> 

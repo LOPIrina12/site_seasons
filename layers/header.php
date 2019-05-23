@@ -33,7 +33,7 @@
                     
                     <div class="nav"><!--Div если пользователь  авторизован -->
                         <?php if ($_SESSION && $_SESSION['login']):?>
-                        <a href="<?=url('web/admin.php'); ?>">
+                        <a href="<?=url('/web/admin'); ?>">
                          <?= $_SESSION['fio'] ?><!--Фио авториз пользователя-->
                         </a>
                         <?php if ($_SESSION['role'] == 'admin') :?>
