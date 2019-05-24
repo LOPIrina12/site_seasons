@@ -376,4 +376,51 @@ input:focus {
     border-color: #6c9ae2;
 }
 
+/*scc for table for admin*/
 
+table {
+    
+border-spacing: 0 10px;
+padding:20px;
+border-radius: 20px;
+box-shadow:0 4px 20px  rgba(0,0,0,0.06);
+}
+th {
+padding: 10px 20px;
+background: rgb(93, 147, 228);
+color: #ffffff;
+border-right: 2px solid; 
+font-size: 0.9em;
+}
+th:first-child {
+text-align: left;
+}
+th:last-child {
+border-right: none;
+}
+td {
+vertical-align: middle;
+padding: 10px;
+font-size: 14px;
+text-align: center;
+border-top: 2px solid rgb(93, 147, 228);
+border-bottom: 2px solid rgb(93, 147, 228);
+border-right: 2px solid rgb(93, 147, 228);
+}
+td:first-child {
+border-left: 2px solid rgb(93, 147, 228);
+/*border-right: none;*/
+}
+td:nth-child(2){
+text-align: left;
+}
+
+/*.but-detailed {
+    border:none;
+    border-radius:5px;
+     background-color: #FF8C19;
+    color: #ffffff;
+      text-decoration: none;
+    font-size: 14px;
+    
+}/*
