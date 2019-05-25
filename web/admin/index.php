@@ -18,7 +18,7 @@
         $applications=$db->getObject();
     }
     $db->close();
-    hgghghhhggjhgjhgjh
+    
     
     file_include('/layers/header.php', 'Домашняя страница пользователя');
 ?>
