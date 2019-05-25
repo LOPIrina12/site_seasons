@@ -30,7 +30,7 @@ if($_POST) {
         $fio = $_POST['fio'];
         
         $date_app = date('Y-m-d');
-        ++ $num_app;
+       
         $processed = 0;
         //variable for id_trading_place that is gotten from hidden form
         $torg_obj = $_POST['torg_obj'];
@@ -39,6 +39,7 @@ if($_POST) {
         VALUES ('$name_enterprise', '$ynp', '$adress', '$phone', '$e_mail','$fio' )");
         
         $id_org = $db->lastId();
+        $num_app = $db->lastId();
        
         $db->setQuery("INSERT INTO `application` (`id_tr_place`,`id_org`,`num_app`, `date_app`, `processed`) 
         VALUES ('$torg_obj','$id_org','$num_app', '$date_app', '$processed')");
