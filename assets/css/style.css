@@ -308,7 +308,7 @@ body, html {
     background-color: tomato;
 }
 
-form {
+.form-app {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -322,7 +322,7 @@ form {
 }
 
 
-form h2 {
+.form-appform :h2 {
     font-size: 18px;
 }
 
@@ -378,27 +378,27 @@ input:focus {
 
 /*scc for table for admin*/
 
-table {
+.table-app {
     
 border-spacing: 0 10px;
 padding:20px;
 border-radius: 20px;
 box-shadow:0 4px 20px  rgba(0,0,0,0.06);
 }
-th {
+.table-th-app {
 padding: 10px 20px;
 background: rgb(93, 147, 228);
 color: #ffffff;
 border-right: 2px solid; 
 font-size: 0.9em;
 }
-th:first-child {
+.table-th-app:first-child {
 text-align: left;
 }
-th:last-child {
+.table-th-app:last-child {
 border-right: none;
 }
-td {
+.table-td-app {
 vertical-align: middle;
 padding: 10px;
 font-size: 14px;
@@ -407,20 +407,59 @@ border-top: 2px solid rgb(93, 147, 228);
 border-bottom: 2px solid rgb(93, 147, 228);
 border-right: 2px solid rgb(93, 147, 228);
 }
-td:first-child {
+.table-td-app:first-child {
 border-left: 2px solid rgb(93, 147, 228);
-/*border-right: none;*/
+
 }
-td:nth-child(2){
+.table-td-app:nth-child(2){
 text-align: left;
 }
 
-/*.but-detailed {
-    border:none;
-    border-radius:5px;
-     background-color: #FF8C19;
-    color: #ffffff;
-      text-decoration: none;
-    font-size: 14px;
+.table-info{
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0,0,0, 0.06);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
     
-}/*
+}
+.div-info-up {
+    width: 100%;
+    height: 250px;
+   
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+.info-up-left{
+    width: 50%;
+    height: 100%;
+  
+   
+}
+.info-up-right{
+     width: 50%;
+    height: 100%;
+  
+}
+.div-info-bot{
+    width: 100%;
+    height: 250px;
+    
+  
+   
+}
+
+.form_info{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+    box-shadow: 0 4px 20px rgba(0,0,0, 0.06);
+    border-radius: 5px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    
+}

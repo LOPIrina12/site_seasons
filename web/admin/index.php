@@ -30,26 +30,26 @@
     
     <h1>Заявка на аренду</h1>
     <?php if($applications):?>
-    <table>
+    <table class="table-app">
         <tr>
-            <th>Номер заяки</th>
-            <th>Дата заяки</th>
-            <th>Организация</th>
-            <th>Номер торгового места</th>
-            <th>Контактное лицо</th>
-            <th>Телефон</th>   
-            <th>Подробнее</th>   
+            <th class="table-th-app">Номер заяки</th>
+            <th class="table-th-app">Дата заяки</th>
+            <th class="table-th-app">Организация</th>
+            <th class="table-th-app">Номер торгового места</th>
+            <th class="table-th-app">Контактное лицо</th>
+            <th class="table-th-app">Телефон</th>   
+            <th class="table-th-app">Подробнее</th>   
         </tr>
         <?php foreach ($applications as $application):?>
          <tr>
-            <td><?=$application->num_app; ?> </td>
-            <td><?=$application->date_app; ?> </td>
-            <td><?=$application->name_org; ?></td>
-            <td><?=$application->number_place; ?></td>
-            <td><?=$application->fio; ?></td>
-            <td><?=$application->phone; ?></td>   
-            <td>
-            <button class="but-detailed">Подробнее</button>
+            <td class="table-td-app"><?=$application->num_app; ?> </td>
+            <td class="table-td-app"><?=$application->date_app; ?> </td>
+            <td class="table-td-app"><?=$application->name_org; ?></td>
+            <td class="table-td-app"><?=$application->number_place; ?></td>
+            <td class="table-td-app"><?=$application->fio; ?></td>
+            <td class="table-td-app"><?=$application->phone; ?></td>   
+            <td class="table-td-app">
+            <a href="<?=url('/web/admin/info.php');?>">Подробнее</a>
             </td>   
         </tr>
      <?php endforeach; ?>   
