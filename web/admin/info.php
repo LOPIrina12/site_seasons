@@ -12,7 +12,15 @@ $date_end_contract= '';
 $processed = '';
 $rented ='';
 
-
+$db = new Db();
+$db->setQuery("SELECT `a`.`num_app`,`a`.`date_app`,`a`.`num_contract`,`a`.`date_contract`,`a`.`date_end_contract`,`a`.`processed`,
+`t`.*, 
+`o`. *
+FROM `application` AS `a`
+JOIN `tradingPlace` AS `t`
+ON `a`.`id_tr_place`=`t`.`id_tradingPlace`
+JOIN `organization` AS `o`
+ON `a`.`id_org`=`o`.`id`");
 
 
 
