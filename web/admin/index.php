@@ -49,7 +49,8 @@
             <td class="table-td-app"><?=$application->fio; ?></td>
             <td class="table-td-app"><?=$application->phone; ?></td>   
             <td class="table-td-app">
-            <a href="<?=url('/web/admin/info.php');?>">Подробнее</a>
+            <a href="<?=url('/web/admin/info.php?num_app=' . $application->num_app);?>">Подробнее</a>
+            
             </td>   
         </tr>
      <?php endforeach; ?>   

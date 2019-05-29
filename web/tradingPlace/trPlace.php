@@ -25,6 +25,7 @@
          * То получаем массив строчек из базы и сохраняем в переменную $products*/
         $products = $db->getObject();
     }
+    echo $products;
     $db->close();// Закрываем соединение с базой, т.к. на этой странице запросов больше не будет
     /*
      * Подключаем шапку сайта. Здесь будет идти код из файла /layers/header.php
@@ -87,7 +88,8 @@
                     </div>
                 </div>
                 <div class="table-item-footer">
-                    <a href="<?=url('/web/application/applicationRent.php?id=' . $product->id_tradingPlace);?>" class="button button-primary">Оставить заявку</a>
+                    <a href="<?=url('/web/application/applicationRent.php?id=' . $product->id_tradingPlace);?>" 
+                        class="button button-primary">Оставить заявку</a>
                 </div>
                 
             </div>

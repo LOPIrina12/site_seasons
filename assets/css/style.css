@@ -463,3 +463,8 @@ text-align: left;
     padding: 20px;
     
 }
+
+.div-info-button{
+   display: flex;
+   flex-direction: row;
+}
