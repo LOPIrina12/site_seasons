@@ -137,9 +137,7 @@ $db->close();
                     </div>
                     
                     <div class="div-info-button">
-                       <button type="submit" class="button-submit">Отправить</button> 
-                    <input id = "input" type="submit" value="Сохранить" class="button-submit">
-                    <input value="Редактировать" onclick="edit()" type="button">
+                       <button type="submit" class="button-submit">Отправить</button>                  
                     </div>
                 </form>   
             </div>
@@ -148,12 +146,4 @@ $db->close();
 </div>
 
 <?php file_include('/layers/footer.php');?>
-
-<script>
- 
-    function edit() {
-     
-    }
-  </script>
-}
-</script>
+   

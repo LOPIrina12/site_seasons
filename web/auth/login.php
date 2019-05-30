@@ -16,12 +16,12 @@
             $_SESSION['login'] = $user->login;
             $_SESSION['fio'] = $user->fio;
             $_SESSION['role'] = $user->role;
-            header('Location: ' . url('/web/admin'));// перенаправляем на домашнюю страницу
+            header('Location: ' . url('/web/admin/dashboard.php'));// перенаправляем на домашнюю страницу
       } else {
           $error = 'Пользователь не найден. Возможно вы неправильно ввели логин/пароль';
       }
        $db->close();// закрываем соединение с базой
-  } 
+    } 
   
   
     file_include('/layers/header.php', 'Вход в приложение');
