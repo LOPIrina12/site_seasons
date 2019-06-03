@@ -4,7 +4,7 @@ file_include ('/library/Db.php');
 
 access (['admin']);
 
-file_include('/layers/header.php', 'Информация о заявке');
+file_include('/layers/headerAdmin.php', 'Информация о заявке');
 
 $num_contract = '';
 $date_conctract = '';
@@ -24,17 +24,15 @@ $db->setQuery("SELECT `a`.`id_org`,`a`.`id_tr_place`, `a`.`num_app`,`a`.`date_ap
 `t`.*, 
 `o`. *
 FROM `application` AS `a`
-JOIN `tradingPlace` AS `t`
-ON `a`.`id_tr_place`=`t`.`id_tradingPlace`
-JOIN `organization` AS `o`
-ON `a`.`id_org`=`o`.`id`
-WHERE `num_app` = '$num_app'");
+JOIN `tradingPlace` AS `t` ON `a`.`id_tr_place`=`t`.`id_tradingPlace`
+JOIN `organization` AS `o` ON `a`.`id_org`=`o`.`id`
+WHERE `num_app` = '$num_app'
+LIMIT 1");
 
 
-$apps = array();
+$app = null;
 if ($db->getNumRows()) {
-    $apps = $db->getObject();
-    
+    $app = $db->getObject(1);
 }
 
 $ynp = '';
@@ -42,15 +40,14 @@ if($_POST) {
     $ynp=$_POST['ynp'];
 }
 
-$db->setQuery("UPDATE `organization` SET `ynp`='$ynp'" );
+$db->setQuery("UPDATE `organization` SET `ynp`='$ynp' " );
 $db->close();
 
 
 
 ?>
 <div class="container">
-    <?php if ($apps):?>
-        <?php foreach ($apps as $app): ?>
+    <?php if ($app):?>
             <h1>Заявка № <?=$app->num_app;?> от <?=$app->date_app;?> </h1>   
             <div class="table-info">
                 <form class="form-edit" action="" method="POST">
@@ -141,9 +138,8 @@ $db->close();
                     </div>
                 </form>   
             </div>
-        <?php endforeach; ?>
     <?php endif; ?>    
 </div>
 
-<?php file_include('/layers/footer.php');?>
+<?php file_include('/layers/footerAdmin.php');?>
    

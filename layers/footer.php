@@ -20,6 +20,5 @@
             </div>
             
         </footer>
-        <script src="/assets/js/jsFile.js"> </script>
 </body>
 </html>

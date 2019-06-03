@@ -20,34 +20,20 @@
             <div class="container">
             <!-- div навигация на сайте -->
                 <div class="header-container">
+
                     <a href="<?=url('/');?>" class="logo">SEASONS</a>
-                    <div class="nav">
-                        <a href="<?=url('/web/general-info/general-information.php');?>">О центре</a>
-                        <a href="<?=url('/web/toBuyers/buyers.php');?>">Покупателям</a>
-                        <a href="<?=url('/web/toTenants/tenants.php');?>">Арендаторам</a>
-                        <a href="<?=url('/contacts.php'); ?>">Контакты</a>
-                    </div>
+                        <div class="nav">
+                            <a href="<?=url('/web/general-info/general-information.php');?>">О центре</a>
+                            <a href="<?=url('/web/toBuyers/buyers.php');?>">Покупателям</a>
+                            <a href="<?=url('/web/toTenants/tenants.php');?>">Арендаторам</a>
+                            <a href="<?=url('/contacts.php'); ?>">Контакты</a>
+                        </div>
                     <div id="button-application">
                         <a href="<?=url('/web/tradingPlace/trPlace.php');?>" class="but">Свободные помещения</a>
                     </div>
-                    
-                    <div class="nav"><!--Div если пользователь  авторизован -->
-                        <?php if ($_SESSION && $_SESSION['login']):?>
-                        <a href="<?=url('/web/admin'); ?>">
-                         <?= $_SESSION['fio'] ?><!--Фио авториз пользователя-->
-                        </a>
-                        <?php if ($_SESSION['role'] == 'admin') :?>
-                        <a href="<?=url('/web/auth/registry.php'); ?>">Добавить пользователя</a>
-                        <?php endif;?>
-                         <a href="<?=url('/web/auth/logout.php'); ?>">Выйти</a>
-                        <?php else:?><!--Для не авторизованных пользователей-->
-                        <a href="<?=url('/web/auth/login.php'); ?>">Личный кабинет</a>
-                        <?php endif;?>
-                         
-                    
-                    </div>
-                    
+  
                 </div>
             </div>
         </header>
+    
         <section id="content" class="content">

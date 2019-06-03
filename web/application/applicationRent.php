@@ -20,7 +20,6 @@ $id ='';
 if($_GET['id']) {
     $id= $_GET['id'];
 }
-echo $id;
 if($_POST) {
     if ($_POST['name_enterprise']) {        
         $name_enterprise = $_POST['name_enterprise'];
