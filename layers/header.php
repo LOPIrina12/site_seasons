@@ -12,6 +12,7 @@
         crossorigin="anonymous">
     <link  rel="stylesheet" href="/assets/css/normalize.css">
     <link  rel="stylesheet" href="/assets/css/style.css">
+    <!--<script type="text/javascript" src="/asserts/js/jquery/jquery-3.4.1.min.js"> </script>-->
 </head>
 <body>
         <header id="header" 

@@ -12,6 +12,17 @@
         crossorigin="anonymous">
     <link  rel="stylesheet" href="/assets/css/normalize.css">
     <link  rel="stylesheet" href="/assets/css/style.css">
+    <!--<script type="text/javascript" src="/asserts/js/jquery/jquery-3.4.1.min.js"> </script>-->
+   <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+   <!-- <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+    <script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous"></script>
+    <script src="/assets/js/ajax.js"></script>-->
 </head>
 <body class="body-admin">
     <header class="header-admin">

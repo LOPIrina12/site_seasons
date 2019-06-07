@@ -519,7 +519,7 @@ input:focus {
     padding-top: 70px;
     background-color: #EDF2F4;
 }
- 
+ /*таблица с общей информацией о заявках*/
 .table-app {
     width: 100%;
     background-color: #fff;
@@ -536,11 +536,21 @@ input:focus {
     font-size: 14px;
 }
 
+.table-app th {
+    text-align: left;
+    padding: 10px 15px;
+    font-size: 14px;
+}
 .table-app tbody tr {
    border-bottom: 1px solid #f1f1f1;
 }
 
 .table-app tbody td {
+    text-align: left;
+    padding: 10px 15px;
+    font-size: 14px;
+}
+.table-app  td {
     text-align: left;
     padding: 10px 15px;
     font-size: 14px;
@@ -601,5 +611,39 @@ input:focus {
     min-height: 400px;
     max-width: 1000px; 
     padding: 20px 0;
-   
+}
+
+/*add app*/
+.add-app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 600px;
+}
+
+.div-org-add{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #fff;
+}
+.div-selector-add{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.div-selector {
+    padding: 20px;
+}
+
+.add-app-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.div-org-edit-left {
+min-width: 500px;
+}
+.div-org-edit-right {
+  min-width: 500px;
 }

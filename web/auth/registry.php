@@ -1,7 +1,6 @@
 <?php
 include '../../library/core.php';
 file_include('/library/Db.php');
-file_include('/layers/headerAdmin.php', 'Регистрация');
 
 access (['admin']);
 
@@ -35,7 +34,7 @@ if ($_POST) {
                     $_SESSION['login'] = $login; 
                     $_SESSION['password'] = $password;
                     $_SESSION['fio'] =  $fio;
-                    /*header('Location: ' . url('/web/admin'));    */          
+                    header('Location: ' . url('/web/admin'));       
                 }
     }
     else {
@@ -43,6 +42,7 @@ if ($_POST) {
     }
 }
 $db->close();
+file_include('/layers/headerAdmin.php', 'Регистрация');
 
 ?>
 
@@ -114,7 +114,7 @@ $db->close();
                     <div class="form-col-right">
                         <select class="select"  name="role">
                              <option  value="user" <?= ($role == 'user') ? 'selected' : '';?> >Администратор ТЦ</option>
-                             <option  value="engineer" <?= ($role == 'user') ? 'selected' : '';?> >Вед. инженер</option>
+                             <option  value="user" <?= ($role == 'user') ? 'selected' : '';?> >Вед. инженер</option>
                         </select>    
                     </div> 
                 </div> 

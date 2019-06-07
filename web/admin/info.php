@@ -49,7 +49,7 @@ $db->close();
 <div class="container">
     <?php if ($app):?>
             <h1>Заявка № <?=$app->num_app;?> от <?=$app->date_app;?> </h1>   
-            <div class="table-info">
+            <div class="table-app">
                 <form class="form-edit" action="" method="POST">
                     <div class="div-info-up">
                         <div class="info-up-left">

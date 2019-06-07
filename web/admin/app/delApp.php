@@ -1,5 +1,5 @@
 <?php
-include '../../library/core.php';
+include '../../../library/core.php';
 file_include('/library/Db.php');
 
 
@@ -14,6 +14,6 @@ if ($_GET && $_GET['num_app']) {
 	$db->setQuery("DELETE FROM `application` WHERE `num_app` = '$num_app'");
 	$db->close();
 }
-/*header('Location: ' . url('/web/admin/'));*/
+header('Location: ' . url('/web/admin/index.php'));
 
 ?>
