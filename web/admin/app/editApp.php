@@ -8,7 +8,8 @@ if($_GET['num_app']) {
    $num_app=$_GET['num_app'];
 }
 $db = new Db();
-$db->setQuery("SELECT `a`.`id_org`,`a`.`id_tr_place`, `a`.`num_app`,`a`.`date_app`,`a`.`num_contract`,`a`.`date_contract`,`a`.`date_end_contract`,`a`.`processed`,
+$db->setQuery("SELECT `a`.`id_org`,`a`.`id_tr_place`, `a`.`num_app`,`a`.`date_app`,`a`.`num_contract`,
+`a`.`date_contract`,`a`.`date_end_contract`,`a`.`processed`,
 `t`.*, 
 `o`. *
 FROM `application` AS `a`
@@ -20,16 +21,31 @@ $app = null;
 if ($db->getNumRows()) {
     $app = $db->getObject(1);
 }
+$num_contract_last = '';
+$db->setQuery("SELECT `num_contract` FROM `application` ORDER BY `num_contract` DESC LIMIT 1");
+if ($db->getNumRows()){
+    $num_contract_last=$db->getObject(1)->num_contract;
+} 
+
+/*echo '<pre>';
+var_dump($num_contract_last);
+echo '</pre>'; */
 $processed = '';
+
 if ($_POST) {
-    if ($_POST['processed'] && $_POST['num_app'] ) {
+    if ($_POST['processed'] && $_POST['num_app']) {
         $processed = $_POST['processed'];
         $num_app = $_POST['num_app'];
+        $num_contract = $_POST ['num_contract'];
+       
+       /* $date_end_contract=$_POST ['date_end_contract'];*/
               if ($processed === 'false' ){
                 $db->setQuery ("UPDATE `application` SET `processed`= '0'  WHERE  `num_app`='$num_app'");
               }
               else {
-                $db->setQuery ("UPDATE `application` SET `processed`= '1'  WHERE  `num_app`='$num_app'");
+                $db->setQuery ("UPDATE `application` 
+                SET `processed`= '1' ,`num_contract`='$num_contract'
+                WHERE  `num_app`='$num_app'");
               }                
        header('Location: ' . url('/web/admin')); 
       
@@ -47,12 +63,17 @@ file_include('/layers/headerAdmin.php', 'Редактировать заявку
                         <h1>Заявка на аренду № <?=$num_app?> от <?=$app->date_app;?> </h1>
                         <?php if($num_app): ?>
                                 <input type="hidden" name="num_app" value="<?= $num_app; ?>">
-                            <?php endif; ?>
+                        <?php endif; ?>
                     </div>
                     <div class="div-selector">  
                         <select class="select"  name="processed">
+                            <?php if ($app->processed === '1') :?>
                             <option  value="true" <?= ($processed == 'true') ? 'selected' : '';?> >Обработано</option>
                             <option  value="false" <?= ($processed == 'false') ? 'selected' : '';?> >Не обработано</option>
+                            <?else :?>
+                            <option  value="false" <?= ($processed == 'false') ? 'selected' : '';?> >Не обработано</option>
+                            <option  value="true" <?= ($processed == 'true') ? 'selected' : '';?> >Обработано</option>
+                            <?php endif?>
                         </select>    
                     </div>
                 </div> 
@@ -61,15 +82,15 @@ file_include('/layers/headerAdmin.php', 'Редактировать заявку
                         <table class="table-app">
                            <tr>
                                <th>Организация</th>
-                               <td><input readonly id="name_org" type = "text" name="name_org" value="<?=$app->name_org?>"></td>
+                               <td><input disabled id="name_org" type = "text" name="name_org" value="<?=$app->name_org?>"></td>
                            </tr>
                            <tr>
                                <th>УНП</th>
-                               <td><input readonly id="ynp" type="text" name="ynp" value="<?=$app->ynp?>"></td>
+                               <td><input disabled id="ynp" type="text" name="ynp" value="<?=$app->ynp?>"></td>
                            </tr>
                            <tr>
                                <th>Адрес</th>
-                               <td><input readonly id="adress" type="text" name="adress" value="<?=$app->adress?>"></td>
+                               <td><input disabled id="adress" type="text" name="adress" value="<?=$app->adress?>"></td>
                            </tr>
                         </table>
                     </div>
@@ -77,15 +98,15 @@ file_include('/layers/headerAdmin.php', 'Редактировать заявку
                         <table class="table-app">
                             <tr>
                                 <th>Телефон</th>
-                                <td><input readonly value="<?=$app->phone?>"></td>
+                                <td><input disabled value="<?=$app->phone?>"></td>
                             </tr>
                             <tr>
                                 <th>Контактное лицо</th>
-                                <td><input readonly value="<?=$app->fio?>"></td>
+                                <td><input disabled value="<?=$app->fio?>"></td>
                             </tr>
                             <tr>
                                 <th>E-mail</th>
-                                <td><input readonly value="<?=$app->e_mail?>"></td>
+                                <td><input disabled value="<?=$app->e_mail?>"></td>
                             </tr>   
                         </table>
                     </div>
@@ -99,12 +120,19 @@ file_include('/layers/headerAdmin.php', 'Редактировать заявку
                                 <th class="table-th-app">Дата окончания договора</th>
                             </tr>
                             <tr>
+                                <?php if ($app->num_contract === '' || $app->num_contract === NULL) :?>
+                                <td class="table-td-app"><input type="text" name="num_contract"
+                                    placeholder= "<?=$num_contract_last +1?>"></td>   
+                                <?php else :?>
                                 <td class="table-td-app"><input type="text" name="num_contract"
                                     value="<?=$app->num_contract?>"></td>
-                                <td class="table-td-app"><input type="text" name="date_contract"
-                                    value="<?=$app->date_contract?>"></td>
-                                <td class="table-td-app"><input type="text" name="date_end_contract"
-                                    value="<?=$app->date_end_contract?>"></td>
+                                <?php endif?>
+                                <td class="table-td-app">
+                                <input type="date" value="<?=$app->date_contract?>" name="date_contract">
+                                </td>
+                                <td class="table-td-app">
+                                <input type="date" value="<?=$app->date_end_contract?>" name="date_contract">
+                                </td>
                             </tr>
                         </thead>
                     </table>
@@ -115,24 +143,17 @@ file_include('/layers/headerAdmin.php', 'Редактировать заявку
                             <thead>
                                 <tr>
                                     <th class="table-th-app">Номер т.м.</th>
-                                    <th class="table-th-app">Площадь</th>
-                                    <th class="table-th-app">Ед.изм.</th>
-                                    <th class="table-th-app">Ставка</th>
-                                    <th class="table-th-app">Ед.изм.</th>
+                                    <th class="table-th-app">Площадь, м2</th>
+                                    <th class="table-th-app">Ставка, $</th>
                                     <th class="table-th-app">Статус</th>
                                 </tr>
                                 <tr>
-                                    <td class="table-td-app"><input type="text" 
+                                    <td class="table-td-app"><input  type="text" 
                                     name="number_place" value="<?=$app->number_place?>"></td>
-                                    <td class="table-td-app"><input type="text" 
+                                    <td class="table-td-app"><input  type="text" 
                                     name="size_square" value="<?=$app->size_square?>"></td>
-                                    <td class="table-td-app"><input type="text" 
-                                    name="unit_measure" value="<?=$app->unit_measure?>"></td>
                                     <td class="table-td-app"><input type="text"
                                     name="rate" value="<?=$app->rate?>"></td>
-                                    <td class="table-td-app"><input type="text" 
-                                    name="unit_measure_" value="<?=$app->unit_measure_?>"></td>
-
                                     <td class="table-td-app"><div class="div-selector">  
                         <select class="select"  name="rented">
                             <option  value="true" <?= ($rented == 'true') ? 'selected' : '';?> >Арендовано</option>
