@@ -32,35 +32,35 @@
 
 <div class="content">
     <div class="container">
-        <div class="arenda">
-        
+        <div class="arenda"> 
             <h1>Вход в личный кабинет</h1>
-            <!--Обработчик находится в этом же файле-->
-            <form class="form" action="<?=url('/web/auth/login.php');?>" method="POST">
-                <div class="form-row">
-                        <div class="form-col-left">
-                        <label for="login" class="label-required">Логин</label>
-                        </div>
-                        <div class="form-col-right">
-                        <input value="<?=$login?>" type="text" name="login" placeholder="введите логин" required>
-                        </div>
-                        
-                        <div class="form-col-left">
-                        <label for="password" class="label-required">Пароль</label>
-                        </div>
-                        <div class="form-col-right">
-                        <input type="password" name="password" placeholder="введите пароль" required>
-                        </div>            
-                </div>
-                <div class="div-button-submit" >
+            <form class="form-entry" action="<?=url('/web/auth/login.php');?>" method="POST">
 
-                <input type="submit" class="button-submit" name="submit" value="войти">
-                
+                <div class="form-entry-errors">
+                    <?php if($error): ?>
+                        <div class="alert alert-danger" role="alert"><?= $error; ?></div>
+                    <?php endif; ?>
+                </div>
+  
+                <div class="form-entry-row">
+                    <div class="form-entry-field">
+                        <label for="login">Логин</label>
+                        <input value="<?=$login?>" type="text" name="login" placeholder="введите логин" required>
+                    </div>           
+                </div>
+
+                <div class="form-entry-row">
+                    <div class="form-entry-field">
+                        <label for="password">Пароль</label>
+                        <input type="password" name="password" placeholder="введите пароль" required>
+                    </div>
+                </div>
+
+                <div class="form-entry-submit" >
+                    <button type="submit" name="submit" class="button button-secondary">Войти</button>
                 </div>
                
-                <?php if($error): ?><!--Если есть ошибки, то выводим-->
-                    <p style="color: #DD0000"><?= $error; ?></p>
-                <?php endif; ?>
+               
             </form>
         </div> 
     </div>    

@@ -119,10 +119,9 @@ file_include('/layers/headerAdmin.php', 'Регистрация');
                     </div> 
                 </div> 
                         
-                <div class="div-button-submit" >
-                    <button type="submit" class="button-registry">Зарегистрировать</button> 
-                    <a href="<?=url('/web/admin/dashboard.php'); ?>" >Отменить</a>
-                   
+                <div class="div-button-submit button-group" >
+                    <button type="submit" class="button button-info">Зарегистрировать</button> 
+                    <button type="reset" class="button button-default">Очистить</button>
                 </div>
             </form>
             <?php if($error): ?>

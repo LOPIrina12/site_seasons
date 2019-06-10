@@ -3,6 +3,7 @@ include '../../../library/core.php';
 file_include('/library/Db.php');
 access (['admin','user']);
 
+
 $num_app ='';
 if($_GET['num_app']) {
    $num_app=$_GET['num_app'];
@@ -27,28 +28,29 @@ if ($db->getNumRows()){
     $num_contract_last=$db->getObject(1)->num_contract;
 } 
 
-/*echo '<pre>';
-var_dump($num_contract_last);
-echo '</pre>'; */
 $processed = '';
 
+
 if ($_POST) {
-    if ($_POST['processed'] && $_POST['num_app']) {
+  /* dump($_POST);*/
+    if ($_POST['processed'] && $_POST['num_app']
+    && $_POST['num_contract'] && $_POST['date_contract'] && $_POST['date_end_contract']) {
         $processed = $_POST['processed'];
         $num_app = $_POST['num_app'];
         $num_contract = $_POST ['num_contract'];
-       
-       /* $date_end_contract=$_POST ['date_end_contract'];*/
-              if ($processed === 'false' ){
-                $db->setQuery ("UPDATE `application` SET `processed`= '0'  WHERE  `num_app`='$num_app'");
-              }
-              else {
+        $date_contract = $_POST ['date_contract'];
+        $date_end_contract = $_POST['date_end_contract'];
+        $date=date("Y-m-d",strtotime($date_contract));
+            if ($processed === "true") {
                 $db->setQuery ("UPDATE `application` 
-                SET `processed`= '1' ,`num_contract`='$num_contract'
+                SET `processed`= '1' ,`num_contract`='$num_contract',
+                `date_contract`='$date', `date_end_contract`='$date_end_contract'
                 WHERE  `num_app`='$num_app'");
+            }
+              else {
+                $db->setQuery ("UPDATE `application` SET `processed`= '0'  WHERE  `num_app`='$num_app'");
               }                
-       header('Location: ' . url('/web/admin')); 
-      
+      header('Location: ' . url('/web/admin'));
     } 
 }   
 $db->close();
@@ -131,7 +133,7 @@ file_include('/layers/headerAdmin.php', 'Редактировать заявку
                                 <input type="date" value="<?=$app->date_contract?>" name="date_contract">
                                 </td>
                                 <td class="table-td-app">
-                                <input type="date" value="<?=$app->date_end_contract?>" name="date_contract">
+                                <input type="date" value="<?=$app->date_end_contract?>" name="date_end_contract">
                                 </td>
                             </tr>
                         </thead>
@@ -149,11 +151,11 @@ file_include('/layers/headerAdmin.php', 'Редактировать заявку
                                 </tr>
                                 <tr>
                                     <td class="table-td-app"><input  type="text" 
-                                    name="number_place" value="<?=$app->number_place?>"></td>
+                                    name="number_place" value="<?=$app->number_place?>" disabled></td>
                                     <td class="table-td-app"><input  type="text" 
-                                    name="size_square" value="<?=$app->size_square?>"></td>
+                                    name="size_square" value="<?=$app->size_square?>" disabled></td>
                                     <td class="table-td-app"><input type="text"
-                                    name="rate" value="<?=$app->rate?>"></td>
+                                    name="rate" value="<?=$app->rate?>" disabled></td>
                                     <td class="table-td-app"><div class="div-selector">  
                         <select class="select"  name="rented">
                             <option  value="true" <?= ($rented == 'true') ? 'selected' : '';?> >Арендовано</option>
@@ -171,8 +173,9 @@ file_include('/layers/headerAdmin.php', 'Редактировать заявку
                     <a href="<?=url('/web/admin/dashboard.php'); ?>" >Отменить</a>
                    
                 </div>
+                
             </div>    
-    </form>       
+    </form> 
 </div>
 
 <?php  file_include('/layers/footerAdmin.php'); ?>

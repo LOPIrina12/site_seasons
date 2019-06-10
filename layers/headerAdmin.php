@@ -10,19 +10,10 @@
         href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" 
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" 
         crossorigin="anonymous">
-    <link  rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link  rel="stylesheet" href="/assets/css/style.css">
-    <!--<script type="text/javascript" src="/asserts/js/jquery/jquery-3.4.1.min.js"> </script>-->
-   <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
-   <!-- <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"></script>
-    <script
-    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-    crossorigin="anonymous"></script>
-    <script src="/assets/js/ajax.js"></script>-->
 </head>
 <body class="body-admin">
     <header class="header-admin">
