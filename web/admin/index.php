@@ -17,14 +17,20 @@
     if ($db->getNumRows()) {
         $applications=$db->getObject();
     }
+
+    $date_app = strtotime($applications->date_app);
+    $date_appForView = date("d.m.y $date_app");
     $db->close();
     
     
-    file_include('/layers/headerAdmin.php', 'Домашняя страница пользователя');
+    file_include('/layers/headerAdmin.php', 'Заявки');
 ?>
-<!--Начало HTML кода-->
-<div class="container"><!--div контейнер для вывода контента сайта-->
+
+<div class="container">
     <h1>Заявка на аренду</h1>
+    <div class="info">
+        <a href="<?=url('/web/admin/app/addApp.php');?>"class="link-info _contract">Добавить</a>
+    </div> 
     <div class="content">
         <?php if($applications):?>
         <table class="table-app">
@@ -34,7 +40,7 @@
                     <th class="table-th-app">Номер заяки</th>
                     <th class="table-th-app">Дата заяки</th>
                     <th class="table-th-app">Организация</th>
-                    <th class="table-th-app">Номер торгового места</th>
+                    <th class="table-th-app">Tорговое места</th>
                     <th class="table-th-app">Контактное лицо</th>
                     <th class="table-th-app">Телефон</th>
                     <th class="table-th-app">Статус</th>    
@@ -46,7 +52,7 @@
                     <tr>
                         <td class="table-td-app"><?=$application->id; ?> </td>
                         <td class="table-td-app"><?=$application->num_app; ?> </td>
-                        <td class="table-td-app"><?=$application->date_app; ?> </td>
+                        <td class="table-td-app"><?=$date_appForView; ?> </td>
                         <td class="table-td-app"><?=$application->name_org; ?></td>
                         <td class="table-td-app"><?=$application->number_place; ?></td>
                         <td class="table-td-app"><?=$application->fio; ?></td>
@@ -61,9 +67,9 @@
                                 <a href="<?=url('/web/admin/info.php?num_app=' . $application->num_app);?>" 
                                     title="Просмотреть" 
                                     class="table-app-btn _eye"><i class="fa fa-eye"></i></a>
-                                <a href="<?=url('/web/admin/app/addApp.php')?>" 
+                                <!-- <a href="<?=url('/web/admin/app/addApp.php')?>" 
                                     title="Добавить" 
-                                   class="table-app-btn _plus"><i class="fa fa-plus"></i></a>
+                                   class="table-app-btn _plus"><i class="fa fa-plus"></i></a>-->
                                 <a href="<?=url('/web/admin/app/editApp.php?num_app=' . $application->num_app)?>"
                                     title="Редактировать" 
                                     class="table-app-btn _edit"><i  class="fa fa-edit"></i></a>               

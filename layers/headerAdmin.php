@@ -21,11 +21,11 @@
             <div class="header-admin-inner">
                     <a href="<?=url('/');?>" class="header-admin-logo">SEASONS</a>
                     <div class="header-admin-nav">
-                        <a href="<?=url('');?>">Организации</a>
-                        <a href="<?=url('');?>">Торговые места</a>
+                        <a href="<?=url('/web/admin/org/showOrg.php');?>">Организации</a>
+                        <a href="<?=url('/web/admin/tradingPlace/showTrPlace.php');?>">Торговые места</a>
                         <a href="<?=url('/web/admin/');?>">Заявки</a>
                         <?php if($_SESSION['role'] == 'admin') :?>
-                        <a href="<?=url('/web/auth/registry.php');?>">Админ</a>
+                        <a href="<?=url('/web/auth/registry.php');?>">Регистрация пользователя</a>
                         <?php endif;?>
                     </div>
                 <div class="header-admin-fio"><?= $_SESSION['fio'] ?></div>

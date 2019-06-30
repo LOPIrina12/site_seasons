@@ -39,8 +39,6 @@ if($_POST) {
         $db->setQuery("INSERT INTO `organization`(`name_org`, `ynp`, `adress`, `phone`,`e_mail`, `fio`) 
         VALUES ('$name_enterprise', '$ynp', '$adress', '$phone', '$e_mail','$fio' )");
         
-       
-        
         $id_org = $db->lastId();
         $num_app = $db->lastId();
        

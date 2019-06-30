@@ -16,7 +16,7 @@ body, html {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 15px 20px;
+    padding: 10px 15px;
     border-radius: 5px;
     outline: none;
     border: none;
@@ -66,8 +66,10 @@ a.button-default:visited, a.button-default:hover {
     color: #000000;
 }
 
+
 .button-group .button {
     margin-right: 5px;
+    margin-left: 5px;
 }
 
 .button-group .button:last-child {
@@ -98,30 +100,30 @@ a.button-default:visited, a.button-default:hover {
     
 }
 
-.button-registry {
-    display:flex;
-    justify-content:center;
-    padding: 10px 20px;
+
+
+.link-info {
+    padding: 10px 15px;
     border-radius: 5px;
-    outline: none;
-    border: none;
-    background: none;
     text-decoration: none;
+    color: white;
+    display: flex;
     font-size: 14px;
-    line-height: 1;
-    width: 20%;
-    height:15%;
-    background-color: #078171;
-    color: #ffffff;
+    background-color: #DF4B41;
 }
+
+
+a.link-info:visited, a.link-info:hover {
+    color:white;
+    text-decoration: none;
+}
+
 /*Все что связано с header*/
 
 .header {
     position: relative;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
     padding: 10px 0;
+    background-color: #262525;
     box-shadow: 0 5px 25px rgba(0,0,0, .26);
 }
 
@@ -158,6 +160,28 @@ a.button-default:visited, a.button-default:hover {
     text-decoration: underline;
 }
 
+.header-button {
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px;
+    border: 1px solid #fff;
+    color: #ffffff;
+    padding: 0 20px;
+    text-decoration: none;
+}
+
+.header-button:visited {
+    text-decoration: none;
+    color: #fff;
+}
+
+.header-button:hover {
+    text-decoration: none;
+    transform: translateY(1px);
+}
+
 .nav {
     display: flex;
 }
@@ -173,52 +197,6 @@ a.button-default:visited, a.button-default:hover {
     color: #eee;
     text-decoration: none;
 }
-
-/*Кнопка в header*/
-.but {
-    text-decoration: none;
-    outline: none;
-    display: inline-block;
-    padding: 12px 15px;
-    position: relative;
-    color: white;
-    border: 1px solid rgba(255,255,255,.4);
-    background: none;
-    font-weight: 100;
-}
-
-.but:before,
-.but:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  opacity: 0;
-  box-sizing: border-box;
-}
-.but:before {
-  bottom: 0;
-  left: 0;
-  border-left: 1px solid white;
-  border-top: 1px solid white;
-  transition: 0s ease opacity .8s, .2s ease width .4s, .2s ease height .6s;
-}
-.but:after {
-  top: 0;
-  right: 0;
-  border-right: 1px solid white;
-  border-bottom: 1px solid white;
-  transition: 0s ease opacity .4s, .2s ease width , .2s ease height .2s;
-}
-.but:hover:before,
-.but:hover:after{
-  height: 100%;
-  width: 100%;
-  opacity: 1;
-}
-.but:hover:before {transition: 0s ease opacity 0s, .2s ease height, .2s ease width .2s;}
-.but:hover:after {transition: 0s ease opacity .4s, .2s ease height .4s , .2s ease width .6s;}
-
 .footer {
     background-color: #262525;
     padding: 80px 0;
@@ -270,7 +248,6 @@ a.button-default:visited, a.button-default:hover {
 .content {
     flex: 1;
 }
-
 
 .table {
     width: 100%;
@@ -424,6 +401,7 @@ input:focus {
     box-shadow: 0 0 0 1px #6c9ae2;
     border-color: #6c9ae2;
 }
+
 .select{
     width: 100%;
     padding: 10px 20px;
@@ -611,21 +589,34 @@ input:focus {
 .table-app-btn:last-child {
     margin-right: 0;
 }
+.table-app-btn._window-close{
+    background-color: #DF4B41;
+}
 
 .table-app-btn._eye {
     background-color: #525C68;
 }
-
+a.table-app-btn._eye:visited, a.table-app-btn._eye:hover {
+    text-decoration: none;
+}
 .table-app-btn._plus {
     background-color: #078171;
+}
+a.table-app-btn._plus:visited, a.table-app-btn._plus:hover {
+    text-decoration: none;
 }
 
 .table-app-btn._edit {
     background-color: #5D93E4;
 }
-
+a.table-app-btn._edit:visited, a.table-app-btn._edit:hover {
+    text-decoration: none;
+}
 .table-app-btn._trash {
     background-color: #DF4B41;
+}
+a.table-app-btn._trash:visited, a.table-app-btn._trash:hover {
+    text-decoration: none;
 }
 
 .table-app-btn .fa {
@@ -656,6 +647,18 @@ input:focus {
     height: 600px;
 }
 
+.title-form {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+}
+.input-num{
+    width: 100px;
+    height: 43px;
+}
+.input-date{
+    height: 43px;
+}
 .div-org-add{
     display: flex;
     flex-direction: row;
@@ -668,19 +671,37 @@ input:focus {
     justify-content: space-around;
 }
 .div-selector {
-    padding: 20px;
+    padding: 10px;
+}
+.info {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 10px;
 }
 
+
+.link-info._contract {
+    background-color:#078171;
+}
 .add-app-footer {
     display: flex;
     justify-content: flex-end;
+    
 }
 
+
 .div-org-edit-left {
-min-width: 500px;
+    min-width: 500px;
 }
 .div-org-edit-right {
-  min-width: 500px;
+    display: flex;
+    justify-content: center;
+    min-width: 500px;
+}
+.info-center {
+   
+    width: 340px;
+    height: 300px;
 }
 
 .form-entry {
@@ -689,10 +710,6 @@ min-width: 500px;
     padding: 20px 30px;
     border-radius: 4px;
     border: 1px solid #dedede;
-}
-
-.form-entry-row {
-
 }
 
 .form-entry-field {
@@ -711,10 +728,75 @@ min-width: 500px;
     width: 100%;
 }
 
-.form-entry-errors {
-
+/*add trading place*/
+.add-place {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 500px;
 }
 
-.form-entry-errors p {
-    
+.first-section {
+    position: relative;
+    background-position: 50% 0x;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    min-height: 500px;   
+    display: flex;    
+}
+
+
+.first-section .inner {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    z-index: 4;
+    text-align: center;
+}
+
+.first-section::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color:rgba(0,0,0,0.4);
+}
+
+.news-section {
+    padding: 100px 0;
+}
+
+.news {
+    display: flex;
+    margin: 0 -10px;
+}
+
+.news-col {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.news-img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.news-title {
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+.news-text {
+    font-size: 14px;
+}
+
+.upload input {
+    display: none;
 }

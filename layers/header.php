@@ -17,8 +17,7 @@
 </head>
 <body>
         <header id="header" 
-            class="header" 
-            style="background-image: url('http://elgibborsms.com/blog/wp-content/uploads/2018/01/how-independent-retailers-can-thrive-in-a-volatile-market.jpg')">
+            class="header">
             <div class="container">
             <!-- div навигация на сайте -->
                 <div class="header-container">
@@ -31,7 +30,7 @@
                             <a href="<?=url('/contacts.php'); ?>">Контакты</a>
                         </div>
                     <div id="button-application">
-                        <a href="<?=url('/web/tradingPlace/trPlace.php');?>" class="but">Свободные помещения</a>
+                        <a href="<?=url('/web/tradingPlace/trPlace.php');?>" class="header-button">Свободные помещения</a>
                     </div>
   
                 </div>

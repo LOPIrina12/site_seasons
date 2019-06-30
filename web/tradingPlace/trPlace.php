@@ -25,7 +25,6 @@
          * То получаем массив строчек из базы и сохраняем в переменную $products*/
         $products = $db->getObject();
     }
-    echo $products;
     $db->close();// Закрываем соединение с базой, т.к. на этой странице запросов больше не будет
     /*
      * Подключаем шапку сайта. Здесь будет идти код из файла /layers/header.php
@@ -65,22 +64,10 @@
                             <strong>Площадь</strong>    
                             <span><?=$product->size_square . " " .	$product->unit_measure; ?></span>
                         </div>
-                        <!--<div class="table-row">
-                            <strong>Ед.изм</strong>    
-                            <span><?=$product->unit_measure; ?></span>
-                        </div>-->
                         <div class="table-row">
-                            <strong>Ставка</strong>    
+                            <strong>Стоимость 1 м2 </strong>    
                             <span><?=$product->rate . " " . $product->unit_measure_ 	; ?></span>
                         </div>
-                       <!-- <div class="table-row">
-                            <strong>Ед.изм.</strong>    
-                            <span><?=$product->unit_measure_; ?></span>
-                        </div>-->
-                       <!-- <div class="table-row">
-                            <strong>Арендовано</strong>    
-                            <span><?=$product->rented; ?></span>
-                        </div> -->
                     </div>
                     <div class="table-item-img" >
                     
