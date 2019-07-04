@@ -154,7 +154,7 @@ file_include('/layers/headerAdmin.php', 'Добавить контракт');
                 </div>
                 <div class="add-app-footer  button-group">
                     <button type="submit" class="button button-info" name="addContract">Сохранить</button>
-                    <a href="<?=url('/web/admin'); ?>" class="link-info">Отменить</a>
+                    <a href="<?=url('/web/admin/contract/showContract.php'); ?>" class="link-info">Отменить</a>
                 </div>
         </div>    
     </form>   

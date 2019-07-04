@@ -6,7 +6,7 @@ access (['admin','user']);
 $db = new Db();
 
 $contracts = array();
-$db->setQuery("SELECT `c`.`num_contract`,`c`.`status`,`o`.`name_org`, `t`.`number_place`,`t`.`size_square`
+$db->setQuery("SELECT `c`.`id`,`c`.`num_contract`,`c`.`status`,`o`.`name_org`, `t`.`number_place`,`t`.`size_square`
                FROM `contract` AS `c`
                INNER JOIN `organization` AS `o` ON `o`.`id`=`c`.`id_org`
                INNER JOIN `tradingPlace` AS `t` ON `t`.`id_tradingPlace` = `c`.`id_tr_place`");
@@ -53,7 +53,7 @@ file_include('/layers/headerAdmin.php', 'Договора');
                             <td class="table-td-app"><?=$contract->name_org; ?></td>
                             <td>
                                 <div class="table-app-btn-group">
-                                    <a href="<?=url('/web/admin/contract/infoContract.php?id=' );?>" 
+                                    <a href="<?=url('/web/admin/contract/infoContract.php?id=' . $contract->id );?>" 
                                         title="Просмотреть" 
                                         class="table-app-btn _eye"><i class="fa fa-eye"></i></a>
 
