@@ -9,7 +9,17 @@ if ($_GET['id_tradingPlace']) {
     $id=$_GET['id_tradingPlace'];
 }
 
+$db = new Db();
+$db->setQuery ("SELECT * FROM `tradingPlace` WHERE `id_tradingPlace` = '$id'");
+$palce = NULL;
+if ($db->getNumRows ()){
+    $place = $db -> getObject();
+}
+echo '<pre>';
+var_dump ($place);
+echo '</pre>';
 
+$db->close();
 
 
 file_include('/layers/headerAdmin.php', 'Торговые места');

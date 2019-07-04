@@ -24,6 +24,8 @@
                         <a href="<?=url('/web/admin/org/showOrg.php');?>">Организации</a>
                         <a href="<?=url('/web/admin/tradingPlace/showTrPlace.php');?>">Торговые места</a>
                         <a href="<?=url('/web/admin/');?>">Заявки</a>
+                        <a href="<?=url('/web/admin/contract/showContract.php
+                        ');?>">Договора</a>
                         <?php if($_SESSION['role'] == 'admin') :?>
                         <a href="<?=url('/web/auth/registry.php');?>">Регистрация пользователя</a>
                         <?php endif;?>
