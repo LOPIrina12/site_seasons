@@ -27,7 +27,7 @@
 ?>
 
 <div class="container">
-    <h1>Заявка на аренду</h1>
+    <h1>Заявки на аренду</h1>
     <div class="info">
         <a href="<?=url('/web/admin/app/addApp.php');?>"class="link-info _contract">Добавить</a>
     </div> 

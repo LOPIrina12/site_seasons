@@ -9,45 +9,52 @@ if ($_GET['id_tradingPlace']) {
 
 
 $db = new Db();
-
-$db->setQuery ("SELECT `rented` FROM `tradingPlace` 
-                WHERE `id_tradingPlace` = '$id_tradingPlace' LIMIT 1");
-
-if ($db->getNumRows()) {
-$rented = $db->getObject(1)->rented;
-}
-$place = null;
-
-if($rented === '1') {
-    $db->setQuery ("SELECT *, `t`.*
-    FROM `application` AS `a`
-    INNER JOIN `tradingPlace` AS `t` ON `a`.`id_tr_place`=`t`.`id_tradingPlace`
-    WHERE `id_tradingPlace` = '$id_tradingPlace' LIMIT 1");
-
-    if ($db->getNumRows ()) {
+$place = array();
+$db->setQuery("SELECT * FROM `tradingPlace` WHERE `id_tradingPlace`='$id_tradingPlace'");
+if ($db->getNumRows()){
     $place = $db->getObject(1);
-    }
 }
-else {
-    $db->setQuery ("SELECT * FROM `tradingPlace`  
-    WHERE `id_tradingPlace` = '$id_tradingPlace' LIMIT 1 ");
-    if ($db->getNumRows ()) {
-        $place = $db->getObject(1);
-    }
-}
-
 // echo '<pre>';
 // var_dump( $place);
 // echo '</pre>';
+if ($place->rented === '1') {
+    $contract = array();
+    $db->setQuery("SELECT   `o`.name_org,
+                            `c`.`id_tr_place`,`c`.`num_contract`, `c`.`date_contract`, `c`.`id`,
+                            `c`.`begin_arenda`, `c`.`end_arenda`,
+                            `t`.`id_tradingPlace`
+                    FROM `contract` AS `c`
+                    INNER JOIN `organization`  AS `o` ON `o`.`id` = `c`.`id_org`
+                    INNER JOIN `tradingPlace`  AS `t` ON `t`.`id_tradingPlace` = `c`.`id_tr_place`
+                    WHERE `c`.`id_tr_place`= '$id_tradingPlace ' ");
+    if ($db->getNumRows()){
+        $contract = $db->getObject(1);
+    }
+    $id_contract = $contract->id;
+    if (!$id_contract) {
+        $db->setQuery("SELECT `a`.`id`, `a`.`num_app`,`a`.`date_app`,`t`.`id_tradingPlace`,`o`.`name_org`
+                        FROM `application` AS `a`
+                        INNER JOIN `organization` AS `o` ON `o`.`id`=`a`.`id_org`
+                        INNER JOIN `tradingPlace` AS `t` ON `t`.`id_tradingPlace`=`a`.`id_tr_place`
+                        WHERE `a`.`id_tr_place`= '$id_tradingPlace ' ");
+        if ($db->getNumRows()){
+            $app = $db->getObject(1);
+        }
+        $id_app = $app->id;
+    }
+}
 
-$date_contract = strtotime($place->date_contract);
+$date_contract = strtotime($contract->date_contract);
 $date_contractForView = date("d.m.y", $date_contract);
 
-$begin_arenda = strtotime($place->begin_arenda);
+$begin_arenda = strtotime($contract->begin_arenda);
 $begin_arendaForView = date("d.m.y", $begin_arenda);
 
-$end_arenda = strtotime($place->end_arenda);
+$end_arenda = strtotime($contract->end_arenda);
 $end_arendaForView = date("d.m.y", $end_arenda);
+
+$date_app = strtotime($app->date_app);
+$date_appForView = date("d.m.y", $date_app);
 
 $db->close();
 
@@ -62,8 +69,8 @@ file_include('/layers/headerAdmin.php', 'Торговые места');
                     <div class="div-org-edit-left">
                         <table class="table-app">
                            <tr>
-                               <th>Код</th>
-                               <td><?= $place->id_tradingPlace?></td>
+                               <th>Этаж</th>
+                               <td><?= $place->floor?></td>
                            </tr>
                            <tr>
                                <th>Площадь, м2</th>
@@ -81,32 +88,33 @@ file_include('/layers/headerAdmin.php', 'Торговые места');
                                <td>Не арендовано</td>
                                <?php endif ;?>
                            </tr>
+                           <?php if( $place->rented === '1' && $id_contract):?>
+                           <tr>
+                                <th>Организация</th>
+                                <td><?= $contract->name_org?></td>
+                           </tr>
                            <tr>
                                 <th>Договор</th>
-                                <?php if( $place->rented === '1'):?>
-                                <td><?=' № '. $place->num_contract. ' от '. $date_contractForView?></td>
-                                <?php else:?>
-                                <td><?=''?></td>
-                                <?php endif ;?>
+                                <td><?=' № '. $contract->num_contract. ' от '. $date_contractForView?></td>
                            </tr>
                            <tr>
                                 <th>Начало аренды</th>
-                                <?php if( $place->rented === '1'):?>
                                 <td><?=$begin_arendaForView?></td>
-                                <?php else:?>
-                                <td><?= ' '?></td>
-                                <?php endif ;?>
-                               
                            </tr>
                            <tr>
                                 <th>Окончание аренды</th>
-                                <?php if( $place->rented === '1'):?>
                                 <td><?=$end_arendaForView?></td>
-                                <?php else:?>
-                                <td><?= ' '?></td>
-                                <?php endif ;?>
-                               
                            </tr>
+                           <? elseif ($place->rented === '1' && $id_app):?>
+                           <tr>
+                                <th>Организация</th>
+                                <td><?= $app->name_org?></td>
+                           </tr>
+                           <tr>
+                                <th>Заявка</th>
+                                <td><?=' № '. $app->num_app. ' от '. $date_appForView?></td>
+                           </tr>
+                           <?php endif ;?>
                         </table>
                     </div>
                     <div class="div-org-edit-right">

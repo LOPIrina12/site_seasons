@@ -38,9 +38,7 @@ $processed = '';
 // echo '</pre>';
 
 if ($_POST) {
-    if ($_POST['processed'] || $_POST['num_app']
-    || $_POST['num_contract'] || $_POST['date_contract'] || $_POST['date_end_contract']
-    || $_POST['rented'] || $_POST['id_tradingPlace'] ||$_POST ['begin_arenda'] || $_POST ['end_arenda']) {
+    if ($_POST['processed'] || $_POST['rented'] || $_POST['id_tradingPlace']) {
         $processed = $_POST['processed'];
         $num_app = $_POST['num_app'];
         $num_contract = $_POST ['num_contract'];
@@ -53,8 +51,7 @@ if ($_POST) {
             if ($processed === "true") {
                 if ($rented === "true") {
                     $db->setQuery ("UPDATE `application` 
-                    SET `processed`= '1' ,`num_contract`='$num_contract',
-                    `date_contract`='$date_contract', `begin_arenda`='$begin_arenda', `end_arenda`='$end_arenda'
+                    SET `processed`= '1' 
                     WHERE  `num_app`='$num_app'");
                     $db->setQuery("UPDATE `tradingPlace` 
                     SET `rented`= '1' 
@@ -64,7 +61,7 @@ if ($_POST) {
                     SET `rented`= '0' 
                     WHERE  `id_tradingPlace`='$id_tradingPlace'");
                     $db->setQuery("UPDATE `application` 
-                    SET `processed`= '1',`num_contract`=NULL, `date_contract`=NULL, `begin_arenda`=NULL, `end_arenda`= NULL
+                    SET `processed`= '1'
                     WHERE  `num_app`='$num_app'");
                 }  
             }
@@ -100,10 +97,10 @@ file_include('/layers/headerAdmin.php', 'Редактировать заявку
                         </select>    
                     </div>
                 </div>
-                <div class="info">
+                <!--<div class="info">
                     <a href="<?=url('/web/papers/contract.php?num_app=' . $app->num_app);?>"
                     class="link-info _contract">Договор</a>
-                </div> 
+                </div> -->
                 <div class="div-org-add">
                     <div class="div-org-edit-left">
                         <table class="table-app">
@@ -138,7 +135,7 @@ file_include('/layers/headerAdmin.php', 'Редактировать заявку
                         </table>
                     </div>
                 </div>
-                <div >
+              <!--  <div >
                     <table class="table-app">
                         <thead>
                             <tr>
@@ -167,7 +164,7 @@ file_include('/layers/headerAdmin.php', 'Редактировать заявку
                             </tr>
                         </thead>
                     </table>
-                </div>
+                </div> -->
 
                 <div >
                     <table class="table-app">

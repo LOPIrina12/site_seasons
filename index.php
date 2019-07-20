@@ -5,17 +5,20 @@
 <section class="first-section" style="background-image: url('assets/img/girls.jpg')">
     <div class="inner">
         <div class="container">
-            <h1>Всем привет. Как дела</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Tempora consectetur officia accusamus 
-            ducimus velit saepe excepturi provident atque deserunt 
-            distinctio, quo autem laudantium odio debitis accusantium fugiat facere recusandae a.</p>
+            <h1 align="left" style="margin-top:150px" >ТРЦ «SEASONS»</h1>
+            <p align="left" style="font-size: 18px" >Многофункциональный торгово-рыночный центр,<br>
+            формат которого позволяет объединить возможности<br> 
+            для комфортного шопинга и приятного отдыха.
+            </p>
         </div>
     </div>
 </section>
 
 <section class="news-section">
     <div class="container">
+        <div>
+            <h1 align="center">НАШИ НОВОСТИ</h1>
+        </div>
         <div class="news">
             <div class="news-col">
                 <img src="assets/img/1.jpg" alt="" class="news-img">

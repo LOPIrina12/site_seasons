@@ -344,6 +344,8 @@ a.link-info:visited, a.link-info:hover {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
+    border-color: #5D93E4;
+    border-style: double;
     
 }
 
@@ -537,6 +539,7 @@ input:focus {
     width: 100%;
     background-color: #fff;
     border-collapse: collapse; 
+
 }
 
 .table-app thead tr {
@@ -679,16 +682,18 @@ a.table-app-btn._trash:visited, a.table-app-btn._trash:hover {
     padding-bottom: 10px;
 }
 
-
 .link-info._contract {
     background-color:#078171;
+}
+.link-info._map {
+    background-color:#FF8C19;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 .add-app-footer {
     display: flex;
     justify-content: flex-end;
-    
 }
-
 
 .div-org-edit-left {
     min-width: 500px;
@@ -799,4 +804,60 @@ a.table-app-btn._trash:visited, a.table-app-btn._trash:hover {
 
 .upload input {
     display: none;
+}
+
+.information {
+   display: flex;
+   flex-direction: row;
+   width: auto;
+   height:auto;
+   justify-content: space-around;
+   margin-top: 50px;
+}
+
+.information-left{
+    width: 500px;
+    height:350px;
+    margin-top: 10px;
+}
+
+.information-right{
+    width: 600px;
+    height: 350px;
+    margin-top: 40px;
+}
+
+.left-information{
+    width: 850px;
+    height:200px;  
+}
+
+.right-information{
+    width: 200px;
+    height:200px;  
+}
+
+.map {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.box {
+    width: 650px;
+    height: 500px;
+    box-shadow: 0 4px 20px rgba(0,0,0, 0.10);
+    padding: 10px;
+}
+
+.container-center{
+    display: flex;
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 50px;
+    justify-content: space-around;
+  
 }

@@ -74,10 +74,10 @@ $db->close();
                         </select>    
                     </div>
                 </div> 
-                <div class="info">
+               <!-- <div class="info">
                     <a href="<?=url('/web/papers/contract.php?num_app=' . $app->num_app);?>"
                     class="link-info _contract">Договор</a>
-                </div> 
+                </div> -->
                 <div class="div-org-add">
                     <div class="div-org-edit-left">
                         <table class="table-app">
@@ -115,7 +115,7 @@ $db->close();
                         </table>
                     </div>
                 </div>
-                <div >
+               <!-- <div >
                     <table class="table-app">
                         <thead>
                             <tr>
@@ -143,7 +143,7 @@ $db->close();
                             </tr>
                         </thead>
                     </table>
-                </div>
+                </div> -->
 
                 <div >
                     <table class="table-app">

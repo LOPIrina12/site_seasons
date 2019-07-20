@@ -25,7 +25,7 @@
                     <a href="<?=url('/');?>" class="logo">SEASONS</a>
                         <div class="nav">
                             <a href="<?=url('/web/general-info/general-information.php');?>">О центре</a>
-                            <a href="<?=url('/web/toBuyers/buyers.php');?>">Покупателям</a>
+                          <!--  <a href="<?=url('/web/toBuyers/buyers.php');?>">Покупателям</a>-->
                             <a href="<?=url('/web/toTenants/tenants.php');?>">Арендаторам</a>
                             <a href="<?=url('/contacts.php'); ?>">Контакты</a>
                         </div>

@@ -16,6 +16,6 @@ if ($_GET && $_GET['id']) {
 	$db->setQuery("DELETE FROM `contract` WHERE `id` = '$id'");
 	$db->close();
 }
-header('Location: ' . url('/web/admin/org/showOrg.php'));
+header('Location: ' . url('/web/admin/org/showContract.php'));
 
 ?>

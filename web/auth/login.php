@@ -33,7 +33,8 @@
 <div class="content">
     <div class="container">
         <div class="arenda"> 
-            <h1>Вход в личный кабинет</h1>
+            <h1>Вход в приложение <br>
+            «Аренда недвижимого имущества» </h1>
             <form class="form-entry" action="<?=url('/web/auth/login.php');?>" method="POST">
 
                 <div class="form-entry-errors">

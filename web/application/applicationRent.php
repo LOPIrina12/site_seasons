@@ -30,6 +30,8 @@ if($_POST) {
         $fio = $_POST['fio'];
         
         $date_app = date('Y-m-d');
+        $date_app_to_str= strtotime($date_app);
+        $date_app_for_view = date ("d.m.y",$date_app_to_str);
        
         $processed = 0;
        
@@ -71,96 +73,86 @@ if($_POST) {
                     <h1>Заявка на аренду</h1>
                         <form class="form-app" action="<?=url('/web/application/applicationRent.php');?>" method="POST" >
                            <div class="form-row">
-                                        <div class="form-col-left"></div>
-                                        <div class="form-col-right">
-                                            <p>Поля, отмеченные звездочкой, обязательны для заполнения.<p>
-                                        </div>
+                                <div class="form-col-left"></div>
+                                <div class="form-col-right">
+                                    <p>Поля, отмеченные звездочкой, обязательны для заполнения.<p>
+                                </div>
                             </div>
                             <?php if($id): ?>
                                 <input type="hidden" name="torg_obj" value="<?= $id; ?>">
                             <?php endif; ?>
                             <div class="form-row">
-                                        <div class="form-col-left">
-                                        <label for="name_enterprise" class="label-required">Название организации</label>
-                                        </div>
-                                        <div class="form-col-right">
-                                            <input type="text" name="name_enterprise">
-                                        </div>
-                                        
+                                <div class="form-col-left">
+                                    <label for="name_enterprise" class="label-required">Название организации</label>
+                                </div>
+                                <div class="form-col-right">
+                                    <input type="text" name="name_enterprise">
+                                </div>     
                             </div> 
-                        
-                            <div class="form-row">
-                                       
-                                        <div class="form-col-left">
-                                        <label for="ynp" class="label-required">УНП</label>
-                                        </div>
-                                        <div class="form-col-right">
-                                            <input type="text" name="ynp" id="ynp">
-                                        </div>
-                                        
+                            <div class="form-row">       
+                                <div class="form-col-left">
+                                    <label for="ynp" class="label-required">УНП</label>
+                                </div>
+                                <div class="form-col-right">
+                                    <input type="text" name="ynp" id="ynp">
+                                </div>         
                             </div> 
-                            
-                            <div class="form-row">
-                                       
-                                        <div class="form-col-left">
-                                        <label for="adress" class="label-required">Адрес</label>
-                                        </div>
-                                        <div class="form-col-right">
-                                            <input type="text" name="adress" id="adress">
-                                        </div>
-                                        
+                            <div class="form-row">     
+                                <div class="form-col-left">
+                                    <label for="adress" class="label-required">Адрес</label>
+                                </div>
+                                <div class="form-col-right">
+                                    <input type="text" name="adress" id="adress">
+                                </div>    
                             </div> 
-                            
-                              <div class="form-row">
-                                       
-                                        <div class="form-col-left">
-                                        <label for="adress" class="label-required">Телефон</label>
-                                        </div>
-                                        <div class="form-col-right">
-                                            <input type="text" name="phone" id="phone">
-                                        </div>
-                                        
+                            <div class="form-row">       
+                                <div class="form-col-left">
+                                    <label for="adress" class="label-required">Телефон</label>
+                                </div>
+                                <div class="form-col-right">
+                                    <input type="text" name="phone" id="phone">
+                                </div>
                             </div> 
-                            
-                             <div class="form-row">
-                                       
-                                        <div class="form-col-left">
-                                        <label for="e-mail" class="label-required">Почтовый ящик</label>
-                                        </div>
-                                        <div class="form-col-right">
-                                            <input type="text" name="e_mail" id="e-mail">
-                                        </div>
-                                        
+                            <div class="form-row">   
+                                <div class="form-col-left">
+                                    <label for="e-mail" class="label-required">Почтовый ящик</label>
+                                </div>
+                                <div class="form-col-right">
+                                    <input type="text" name="e_mail" id="e-mail">
+                                </div>        
                             </div> 
-                            
-                            <div class="form-row">
-                                       
-                                        <div class="form-col-left">
-                                        <label for="fio" class="label-required">Контактное лицо</label>
-                                        </div>
-                                        <div class="form-col-right">
-                                            <input type="text" name="fio" id="fio">
-                                        </div>
-                                        
+                            <div class="form-row">   
+                                <div class="form-col-left">
+                                    <label for="fio" class="label-required">Контактное лицо</label>
+                                </div>
+                                <div class="form-col-right">
+                                    <input type="text" name="fio" id="fio">
+                                </div>      
                             </div> 
-                           
-                           <div class="div-button-submit" >
+                            <div class="div-button-submit" >
                                 <button type="submit" class="button-submit">Отправить</button> 
-                           </div>
-                                
-
+                            </div>
                         </form>
-                            <?php elseif($app_id ): ?>
-                            <p>Ваш заявка №<b><?=$app_id ; ?></b> от <b><?=$date_app ;?></b> принята к обработке.</p>
-                            <?php else: ?>
-                            <p><b>Заявка не отправлена</b></p>
-                            <?php endif; ?>
+                        <div class="div-button-submit" >
+                            <p></p> 
+                        </div>    
+                        <?php elseif($app_id ): ?>
+                        <div class="container-center">
+                            <div class="box">
+                                <h1>Ваш заказ подтвержден</h1>
+                                <p style="font-size:20px">Спасибо, что выбрали наш торговый центр.</p>
+                                <p style="font-size:20px">В ближайшее время наш специалист свяжеться с Вами.</p>
+                                <p style="font-size:18px"> Номер заявки: 
+                                <b style="color: #5D93E4"><?=$app_id ; ?>
+                                </b> от <b style="color: #5D93E4"><?=$date_app_for_view ;?></b></p>
+                            </div>
+                        </div>
+                        <?php else: ?>
+                        <p><b>Заявка не отправлена</b></p>
+                        <?php endif; ?>
                 </div>
-       
             </div>
-
         </div>
-
     </div>
 
 

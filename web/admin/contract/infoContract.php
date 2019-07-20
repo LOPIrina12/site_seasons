@@ -33,7 +33,7 @@ file_include('/layers/headerAdmin.php', 'Просмотр контракта');
     <?php if ($contract) :?>
     <h1>Договор № <?= $contract->num_contract?> от <?= $date_dogView ?> </h1>
     <div class="info">
-        <a href="<?=url('/web/papers/contract.php?num_app=' . $app->num_app);?>"
+        <a href="<?=url('/web/papers/contract.php?id_dog=' . $id_dog);?>"
         class="link-info _contract">Просмотр</a>
     </div> 
     <div class="add-place">
@@ -78,7 +78,7 @@ file_include('/layers/headerAdmin.php', 'Просмотр контракта');
                     </tr>
                     <tr>
                         <th>Руководитель</th>
-                        <td><?= $contract->fio?></td>
+                        <td><?= $contract->manager?></td>
                     </tr>
                 </table>
             </div>

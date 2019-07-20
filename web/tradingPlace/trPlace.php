@@ -53,12 +53,12 @@
                 <div class="table-item-body">
                     <div class="table-item-info">
                         <div class="table-row">
-                            <strong>Код</strong>    
-                            <span><?=$product->id_tradingPlace; ?></span>
-                        </div>
-                        <div class="table-row">
                             <strong>Номер торгового места</strong>    
                             <span><?=$product->number_place; ?></span>
+                        </div>
+                        <div class="table-row">
+                            <strong>Этаж</strong>    
+                            <span><?=$product->floor; ?></span>
                         </div>
                         <div class="table-row">
                             <strong>Площадь</strong>    
@@ -67,6 +67,10 @@
                         <div class="table-row">
                             <strong>Стоимость 1 м2 </strong>    
                             <span><?=$product->rate . " " . $product->unit_measure_ 	; ?></span>
+                        </div>
+                        <div class="table-row">
+                            <strong></strong>    
+                            <span></span>
                         </div>
                     </div>
                     <div class="table-item-img" >

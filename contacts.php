@@ -1,27 +1,24 @@
 <?php
-    // Начало php кода
-    // Страница контактов - example2.com/contact.php
 
-    /*
-     * Подключение файла с функциями, которые используются на этой странице
-     * Так как файл находится в корне сайта, то выходить из текущей директории не требуется.
-     * Мы заходим в папку library и обращаемся к файлу core.php
-     * */
     include 'library/core.php';
-    /*
-     * file_include - функция для подключения файлов.
-     * См описание в файле /library/core.php
-     * Подключаем шапку сайта. Здесь будет идти код из файла /layers/header.php
-     * Вторым параметром идет название страницы, которое будет выводится в теге <title>
-    */
     file_include('/layers/header.php', 'Страница контактов');
-    // Завершение php кода
 ?>
-<!--Начало HTML кода-->
-<div><!--div контейнер для вывода контента сайта-->
-    <h1>Страница контактов</h1><!--Заголовок страницы-->
-	Контакты
+
+<div class="container">
+    <h1>Контакты</h1>
+    <div class="information">
+        <div class="information-left">
+            Наш адрес:
+        </div>
+        <div class="information-left">
+            Контактные инфоцентра:
+        </div>
+    </div>
+    <h1>Как добраться</h1>
+    <div class="information">
+        <div class="information-left"></div>
+        <div class="information-right"></div>
+    </div>
 </div>
-<!--Завершение HTML кода-->
-<!--Подключаем подвал сайта. Здесь будет идти код из файла /layers/footer.php-->
+
 <?php file_include('/layers/footer.php'); ?>

@@ -57,11 +57,11 @@ file_include('/layers/headerAdmin.php', 'Договора');
                                         title="Просмотреть" 
                                         class="table-app-btn _eye"><i class="fa fa-eye"></i></a>
 
-                                    <a href="<?=url('' )?>"
+                                    <a href="<?=url('/web/admin/contract/editContract.php?id='. $contract->id)?>"
                                         title="Редактировать" 
                                         class="table-app-btn _edit"><i  class="fa fa-edit"></i></a> 
 
-                                    <a href="<?=url('/web/admin/contract/delContract.php?id=');?>"
+                                    <a href="<?=url('/web/admin/contract/delContract.php?id='. $contract->id);?>"
                                         title="Удалить" 
                                         class="table-app-btn _trash"> <i class="fa fa-trash"></i></a>
                                     
