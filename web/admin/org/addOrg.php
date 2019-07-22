@@ -6,7 +6,7 @@ $db = new Db();
 if ($_POST) {
     if ($_POST['name_org'] && $_POST['ynp'] && $_POST['bik_bank']
     && $_POST['bank'] && $_POST['account'] && $_POST['adress']
-    && $_POST['phone'] && $_POST['e_mail'] && $_POST['fio']) {
+    && $_POST['phone'] && $_POST['e_mail'] && $_POST['fio'] && $_POST['manager']) {
         $name_org = $_POST['name_org'];
         $ynp = $_POST['ynp'];
         $bik_bank = $_POST['bik_bank'];
@@ -16,13 +16,14 @@ if ($_POST) {
         $phone = $_POST['phone'];
         $e_mail = $_POST['e_mail'];
         $fio = $_POST['fio'];
+        $manager=$_POST['manager'];
 
         $db->setQuery ("INSERT INTO `organization`
                       (`name_org`, `ynp`, `bik_bank`, `bank`, `account`,
-                       `adress`, `phone`, `e_mail`, `fio`)
+                       `adress`, `phone`, `e_mail`, `fio`,`manager`)
                       VALUES ('$name_org','$ynp','$bik_bank','$bank','$account',
-                      '$adress','$phone','$e_mail','$fio')");
-        header('Location: ' . url('/web/admin/щкп/showOrg.php')); 
+                      '$adress','$phone','$e_mail','$fio','$manager')");
+        header('Location: ' . url('/web/admin/org/showOrg.php')); 
        
     } else {
         $error = "Заполнены не все поля!";
@@ -88,6 +89,10 @@ file_include('/layers/headerAdmin.php', 'Добавить организацию
                         <tr>    
                             <th><label class="label-required" for="fio">Контактное лицо</label></th>
                             <td><input type="text" name="fio" ></td>
+                        </tr>
+                        <tr>    
+                            <th><label class="label-required" for="manager"> Руководитель</label></th>
+                            <td><input type="text" name="manager" ></td>
                         </tr>
                     </table>
                 </div>

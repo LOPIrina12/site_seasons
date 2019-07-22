@@ -24,10 +24,8 @@ file_include('/layers/headerAdmin.php', 'Договора');
     <div class="info">
         <a href="<?=url('/web/admin/contract/addContract.php');?>"class="link-info _contract">Добавить</a>
     </div>
-    
-
     <div class="content">
-    <?php if ($contracts) :?>   
+        <?php if ($contracts) :?>   
             <table class="table-app">
                 <thead>
                     <tr>
@@ -71,6 +69,8 @@ file_include('/layers/headerAdmin.php', 'Договора');
                     <?php endforeach ;?>
                 </tbody>  
             </table>
-    <?php endif ;?>
-
+        <?php else:?>  
+            <p>Договора не найдены.</p>  
+        <?php endif ;?>
+    </div>
 <?php  file_include('/layers/footerAdmin.php'); ?>

@@ -6,14 +6,29 @@ access (['admin','user']);
 $db = new Db();
 $db->setQuery ("SELECT * FROM `tradingPlace`");
 $places = array();
-
-
 if ($db->getNumRows()) {
     $places = $db->getObject();
 }
 
 $status=$places->rented;
 
+$db->setQuery ("SELECT COUNT(`id_tradingPlace`) AS `count` FROM `tradingPlace`");
+if ($db->getNumRows ()) {
+    $count = $db->getObject(1);
+}
+$count_for_view=$count->count;
+
+$db->setQuery ("SELECT COUNT(*) AS `count` FROM `tradingPlace` WHERE `rented`=1");
+if ($db->getNumRows ()) {
+    $count = $db->getObject(1);
+}
+$countRented=$count->count;
+
+$db->setQuery ("SELECT COUNT(*) AS `count` FROM `tradingPlace` WHERE `rented`=0");
+if ($db->getNumRows ()) {
+    $count = $db->getObject(1);
+}
+$countNotRented=$count->count;
 $db->close();
 
 file_include('/layers/headerAdmin.php', 'Торговые места');
@@ -66,6 +81,32 @@ file_include('/layers/headerAdmin.php', 'Торговые места');
                         </tr>
                      <?php endforeach ;?>      
                 </tbody>
+                <thead>
+                    <tr>
+                        <th class="table-th-app"></th>
+                        <th class="table-th-app" style="font-size:22px;">Всего, шт. :</th>
+                        <th class="table-th-app" style="font-size:22px;"><?=$count_for_view?></th>
+                        <th class="table-th-app"></th>
+                        <th class="table-th-app"></th>
+                        <th class="table-th-app"></th>
+                    </tr>
+                    <tr>
+                        <th class="table-th-app"></th>
+                        <th class="table-th-app" style="font-size:18px;">Арендовано:</th>
+                        <th class="table-th-app" style="font-size:18px;"><?=$countRented?></th>
+                        <th class="table-th-app"></th>
+                        <th class="table-th-app"></th>
+                        <th class="table-th-app"></th>
+                    </tr>
+                    <tr>
+                        <th class="table-th-app"></th>
+                        <th class="table-th-app" style="font-size:18px;">Не арендовано:</th>
+                        <th class="table-th-app" style="font-size:18px;"><?=$countNotRented?></th>
+                        <th class="table-th-app"></th>
+                        <th class="table-th-app"></th>
+                        <th class="table-th-app"></th>
+                    </tr>
+                </thead>
             </table>        
     <?php endif;?>   
     </div>

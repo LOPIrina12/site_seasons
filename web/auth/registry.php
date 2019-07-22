@@ -31,10 +31,10 @@ if ($_POST) {
                 if (!$error && !$error_login && !$error_pass) {
                     $db->setQuery ("INSERT INTO `users` (`login`, `password`,`fio`,`role`)
                                     VALUES ('$login','$password','$fio','$role')");
-                    $_SESSION['login'] = $login; 
-                    $_SESSION['password'] = $password;
-                    $_SESSION['fio'] =  $fio;
-                    header('Location: ' . url('/web/admin'));       
+                    //$_SESSION['login'] = $login; 
+                    //$_SESSION['password'] = $password;
+                    //$_SESSION['fio'] =  $fio;
+                    header('Location: ' . url('/web/admin/dashBoard.php'));       
                 }
     }
     else {
@@ -114,7 +114,7 @@ file_include('/layers/headerAdmin.php', 'Регистрация');
                     <div class="form-col-right">
                         <select class="select"  name="role">
                              <option  value="user" <?= ($role == 'user') ? 'selected' : '';?> >Администратор ТЦ</option>
-                             <option  value="user" <?= ($role == 'user') ? 'selected' : '';?> >Вед. инженер</option>
+                             <option  value="user" <?= ($role == 'user') ? 'selected' : '';?> >Юрисконсульт</option>
                         </select>    
                     </div> 
                 </div> 

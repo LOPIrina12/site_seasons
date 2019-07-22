@@ -7,11 +7,18 @@ access (['admin','user']);
 
 $db = new Db();
 $orgs = array ();
-$db->setQuery ("SELECT * FROM `organization` ORDER BY `name_org`" );
+$db->setQuery ("SELECT * FROM `organization` /*ORDER BY `name_org`*/" );
 if ($db->getNumRows ()) {
     $orgs = $db->getObject();
 }
-
+// echo '<pre>';
+// var_dump ($orgs);
+// echo '</pre>';
+$db->setQuery ("SELECT COUNT(`id`) AS `count` FROM `organization`");
+if ($db->getNumRows ()) {
+    $count = $db->getObject(1);
+}
+$count_for_view=$count->count;
 
 $db->close();
 
@@ -68,8 +75,21 @@ file_include('/layers/headerAdmin.php', 'Организации');
                             </td>   
                         </tr>
                     <?php endforeach; ?> 
-                </tbody>  
+                </tbody>
+                <thead>
+                    <tr>
+                        <th class="table-th-app" style="font-size:25px;"><b>Всего</b> </th>
+                        <th class="table-th-app" style="font-size:25px;">организаций:</th>
+                        <th class="table-th-app" style="font-size:25px;"><?=$count_for_view?> </th>
+                        <th class="table-th-app"></th>
+                        <th class="table-th-app"></th>
+                        <th class="table-th-app" style="font-size:25px;"></th>
+                        <th class="table-th-app"></th>   
+                    </tr>
+                </thead>  
             </table>
-<?php endif; ?>    
-
+        <?php endif; ?>   
+    </div>
+   
+</div>
 <?php  file_include('/layers/footerAdmin.php'); ?>

@@ -86,8 +86,7 @@ file_include('/layers/headerAdmin.php', 'Добавить контракт');
                         <option  value="true" <?= ($status == 'true') ? 'selected' : '';?> >
                         Действуйющий</option> 
                         <? endif;?>
-                    </select> 
-                       
+                    </select>                        
                 </div>
             </div> 
             <div class="div-org-add">

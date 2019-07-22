@@ -2,7 +2,7 @@
    
     include '../../library/core.php';
     file_include('/library/Db.php');
-    access(['admin']);
+    access(['admin','user']);
     
     $db = new Db();
     $db->setQuery(

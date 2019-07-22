@@ -27,7 +27,7 @@
                         <a href="<?=url('/web/admin/contract/showContract.php
                         ');?>">Договора</a>
                         <?php if($_SESSION['role'] == 'admin') :?>
-                        <a href="<?=url('/web/auth/registry.php');?>">Регистрация пользователя</a>
+                        <a href="<?=url('/web/auth/registry.php');?>">Регистрация</a>
                         <?php endif;?>
                     </div>
                 <div class="header-admin-fio"><?= $_SESSION['fio'] ?></div>

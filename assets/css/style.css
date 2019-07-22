@@ -696,7 +696,7 @@ a.table-app-btn._trash:visited, a.table-app-btn._trash:hover {
 }
 
 .div-org-edit-left {
-    min-width: 500px;
+    min-width: 530px;
 }
 .div-org-edit-right {
     display: flex;
