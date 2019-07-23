@@ -70,8 +70,8 @@ file_include('/layers/headerAdmin.php', 'Добавить контракт');
             <div class="div-selector-add">
                 <div class="title-form">
                     <div><input type="hidden" name="id" value="<?=$contract->id?>"></div>
-                    <div><h1>Договор № <?= $contract->num_contract ?>   </h1></div>
-                    <div><h1>   от <?= $date_dogView?> </h1></div>
+                    <div><h1>Договор № <?= $contract->num_contract ?></h1></div>
+                    <div><h1>   от  <?= $date_dogView?> </h1></div>
                 </div>
                <div class="div-selector">  
                     <select class="select"  name="status">

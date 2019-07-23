@@ -9,7 +9,7 @@ if ($_GET['id']){
 
 $db = new Db();
 
-$db->setQuery("SELECT `num_contract` FROM `contract` ORDER BY `num_contract` DESC LIMIT 1 ");
+$db->setQuery("SELECT `id`,`num_contract` FROM `contract` ORDER BY `id` DESC LIMIT 1 ");
 if ($db->getNumRows()) {
     $num_contract = $db->getObject(1);
 }
@@ -26,7 +26,7 @@ if($db->getNumRows()){
     $organization= $db->getObject(1);
 }
 $tradingPlaces = NULL;
-$db->setQuery("SELECT * FROM `tradingPlace` WHERE `rented`='0' ");
+$db->setQuery("SELECT * FROM `tradingPlace` ");
 if($db->getNumRows()) {
     $tradingPlaces = $db->getObject();
 } 
@@ -49,9 +49,9 @@ if($_POST) {
        $db->setQuery ("UPDATE `tradingPlace`
                        SET `rented` = '1'
                        WHERE `id_tradingPlace` = '$id_tr_place'");    
-        
-        header('Location: ' . url('/web/admin/contract/showContract.php'));
+
     }
+    header('Location: ' . url('/web/admin/contract/showContract.php'));
 }
 
 $db->close();

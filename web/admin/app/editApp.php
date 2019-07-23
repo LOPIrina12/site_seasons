@@ -33,12 +33,13 @@ if ($db->getNumRows()){
 } 
 
 $processed = '';
-// echo '<pre>';
-// var_dump($app);
-// echo '</pre>';
+
 
 if ($_POST) {
     if ($_POST['processed'] || $_POST['rented'] || $_POST['id_tradingPlace']) {
+        // echo '<pre>';
+        // var_dump($_POST);
+        // echo '</pre>';
         $processed = $_POST['processed'];
         $num_app = $_POST['num_app'];
         $num_contract = $_POST ['num_contract'];
