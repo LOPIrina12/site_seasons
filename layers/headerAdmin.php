@@ -27,7 +27,23 @@
                         <a href="<?=url('/web/admin/contract/showContract.php
                         ');?>">Договора</a>
                         <?php if($_SESSION['role'] == 'admin') :?>
-                        <a href="<?=url('/web/auth/registry.php');?>">Регистрация</a>
+                        <a href="<?=url('/web/auth/registry.php');?>">Регистрация </a>
+                        <a href="<?=url('/web/admin/report/appReport.php');?>">Отчёт</a>
+                        <!-- <div class="custom-dropdown">
+                            <div class="anchor" data-dropdown-anchor>Open</div>
+                            <div class="custom-dropdown-menu">
+                                <div class="custom-dropdown-menu-inner">
+                                    <a href="#">11</a>
+                                    <a href="#">11</a>
+                                    <a href="#">11</a>
+                                </div> 
+                            </div>
+                        </div> -->
+                        <!-- <a href="<?=url('/web/admin/dashboard.php');?>">Отчёты </a>
+                            <ul class="submenu">
+                                <li><a href="<?=url('/web/admin/report/appReport.php');?>">Торговые места</a></li>
+                            </ul> -->
+
                         <?php endif;?>
                     </div>
                 <div class="header-admin-fio"><?= $_SESSION['fio'] ?></div>

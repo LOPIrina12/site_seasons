@@ -42,10 +42,15 @@ if($_POST) {
         VALUES ('$name_enterprise', '$ynp', '$adress', '$phone', '$e_mail','$fio' )");
         
         $id_org = $db->lastId();
-        $num_app = $db->lastId();
+        //$num_app = $db->lastId();
+        $db->setQuery('SELECT `num_app` FROM `application` ORDER BY `num_app` DESC LIMIT 1');
+        if ($db->getNumRows()) {
+            $num_app = $db->getObject(1);
+        }
+        $num_app_test = $num_app->num_app;
        
         $db->setQuery("INSERT INTO `application` (`id_tr_place`,`id_org`,`num_app`, `date_app`, `processed`) 
-        VALUES ('$torg_obj','$id_org','$num_app', '$date_app', '$processed')");
+        VALUES ('$torg_obj','$id_org','$num_app_test', '$date_app', '$processed')");
         $app_id = $db->lastId();
         $db->setQuery("UPDATE `tradingPlace` SET `rented`=1 WHERE `id_tradingPlace` = '$torg_obj'");
         

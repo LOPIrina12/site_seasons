@@ -653,7 +653,10 @@ a.table-app-btn._trash:visited, a.table-app-btn._trash:hover {
 .title-form {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     padding-top: 10px;
+   
+
 }
 .input-num{
     width: 200px;
@@ -860,4 +863,48 @@ a.table-app-btn._trash:visited, a.table-app-btn._trash:hover {
     margin: 50px;
     justify-content: space-around;
   
+}
+.container-center-row{
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    padding:  15px;
+    /*margin: 50px; */
+    justify-content: space-around;
+}
+.custom-dropdown {
+    position: relative;
+}
+
+.custom-dropdown-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    min-width: 200px;
+}
+
+.custom-dropdown:hover .custom-dropdown-menu, .custom-dropdown-menu:hover {
+    display: flex;
+}
+
+.custom-dropdown-menu a {
+    color: #000;
+}
+
+.custom-dropdown-menu-inner {
+    margin-top: 40px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-dropdown .anchor {
+
+}
+
+.header-admin-nav {
+    display: flex;
 }

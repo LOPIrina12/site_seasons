@@ -4,7 +4,7 @@ file_include('/library/Db.php');
 access (['admin','user']);
 
 $db = new Db();
-$db->setQuery ("SELECT * FROM `tradingPlace`");
+$db->setQuery ("SELECT * FROM `tradingPlace` ORDER BY `floor`");
 $places = array();
 if ($db->getNumRows()) {
     $places = $db->getObject();
@@ -46,6 +46,7 @@ file_include('/layers/headerAdmin.php', 'Торговые места');
                     <tr>
                         <th class="table-th-app">Код</th>
                         <th class="table-th-app">Торговое место</th>
+                        <th class="table-th-app">Этаж</th>
                         <th class="table-th-app">Площадь, м2</th>
                         <th class="table-th-app">Ставка, $</th>
                         <th class="table-th-app">Статус</th>
@@ -57,6 +58,7 @@ file_include('/layers/headerAdmin.php', 'Торговые места');
                         <tr>
                             <td class="table-td-app"><?= $place->id_tradingPlace;?></td>
                             <td class="table-td-app"><?= $place->number_place;?></td>
+                            <td class="table-td-app"><?= $place->floor;?></td>
                             <td class="table-td-app"><?= $place->size_square;?></td>
                             <td class="table-td-app"><?= $place->rate;?></td>
                             <?php if ($place->rented === '1'):?>
