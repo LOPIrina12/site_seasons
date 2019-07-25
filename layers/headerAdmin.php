@@ -28,7 +28,7 @@
                         ');?>">Договора</a>
                         <?php if($_SESSION['role'] == 'admin') :?>
                         <a href="<?=url('/web/auth/registry.php');?>">Регистрация </a>
-                        <a href="<?=url('/web/admin/report/appReport.php');?>">Отчёт</a>
+                        <a href="<?=url('/web/admin/report/placeReport.php');?>">Отчёт</a>
                         <!-- <div class="custom-dropdown">
                             <div class="anchor" data-dropdown-anchor>Open</div>
                             <div class="custom-dropdown-menu">
