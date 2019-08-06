@@ -104,7 +104,7 @@ file_include('/layers/headerAdmin.php', 'Заявка на аренду');
         <?php if(!$quantity):?>
         <div>
             <form method="POST" action="<?= url('/web/admin/report/placeReport.php')?>">
-            <h1>Статистика по торговым местам</h1>
+            <h1>Сведения по торговым местам</h1>
             <div class="title-form">
                 <div><h2>на </h2></div>
                 <div><input class="input-num" type="date" name="begin_arenda" value="<?=$current_date?>"></div>
@@ -118,13 +118,11 @@ file_include('/layers/headerAdmin.php', 'Заявка на аренду');
         <?php else:?>
         <div>
             <form method="POST" action="<?= url('/web/admin/report/appReport.php')?>">
-                <h1>Статистика по торговым местам</h1>
+                <h1>Сведения по торговым местам</h1>
                 <div class="title-form">
                     <div><h2>на </h2></div>
                     <div><input class="input-num" type="date" name="begin_arenda" value="<?=$date?>"></div>
-                    <div class="add-app-footer  button-group">
-                        <button type="submit" class="button button-info" name="edit">Сформировать</button>
-                    </div>
+                    
                     <div class="info">
                         <a href="<?=url('/web/papers/tradeReport.php?date=' . $date);?>"
                             class="link-info _contract">Просмотр</a>

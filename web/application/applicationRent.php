@@ -42,12 +42,12 @@ if($_POST) {
         VALUES ('$name_enterprise', '$ynp', '$adress', '$phone', '$e_mail','$fio' )");
         
         $id_org = $db->lastId();
-        //$num_app = $db->lastId();
+        $num_app = $db->lastId();
         $db->setQuery('SELECT `num_app` FROM `application` ORDER BY `num_app` DESC LIMIT 1');
         if ($db->getNumRows()) {
             $num_app = $db->getObject(1);
         }
-        $num_app_test = $num_app->num_app;
+        $num_app_test = $num_app->num_app+1;
        
         $db->setQuery("INSERT INTO `application` (`id_tr_place`,`id_org`,`num_app`, `date_app`, `processed`) 
         VALUES ('$torg_obj','$id_org','$num_app_test', '$date_app', '$processed')");
@@ -144,11 +144,11 @@ if($_POST) {
                         <?php elseif($app_id ): ?>
                         <div class="container-center">
                             <div class="box">
-                                <h1>Ваш заказ подтвержден</h1>
+                                <h1>Ваша заявка подтверждена</h1>
                                 <p style="font-size:20px">Спасибо, что выбрали наш торговый центр.</p>
                                 <p style="font-size:20px">В ближайшее время наш специалист свяжеться с Вами.</p>
                                 <p style="font-size:18px"> Номер заявки: 
-                                <b style="color: #5D93E4"><?=$app_id ; ?>
+                                <b style="color: #5D93E4"><?=$num_app_test ; ?>
                                 </b> от <b style="color: #5D93E4"><?=$date_app_for_view ;?></b></p>
                             </div>
                         </div>

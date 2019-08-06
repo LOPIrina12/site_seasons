@@ -5,7 +5,7 @@
                 <div class="footer-container">
                     <div class="about">
                         <a href="<?=url('/web/general-info/general-information.php');?>">О центре</a>
-                        <a href="<?=url('/transport.php');?>">Как добраться</a>
+                        <a href="<?=url('/contacts.php');?>">Контакты</a>
                     </div>
                     <div class="info">
                         <span><i class="fa fa-phone"></i> Инфоцентр ТРЦ: 8(044)5-78-78-78</span>
@@ -13,9 +13,9 @@
                         <span><i class="fa fa-phone"></i> Аренда ТРЦ: 8(044)5-70-70-70</span>
                     </div>
                     <div class="info">
-                        <span><i class="fa fa-phone"></i> Понедельник - Воскресенье: 10.00-20.00</span>
-                        <span><i class="fa fa-phone"></i> Минск, ул. В.Хоружей,1</span>
-                    </div>
+                        <span><i class="far fa-clock"></i> Время работы: Понедельник - Воскресенье: 10.00-20.00</span>
+                        <span><i class="fas fa-home"></i> Адрес: г.Минск, ул. В.Хоружей,1</span>
+                    </div> 
                 </div>
             </div>
             

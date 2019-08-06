@@ -46,10 +46,9 @@ if($_POST) {
                         `begin_arenda`,`end_arenda`,`status`) 
                         VALUES ('$id_tr_place','$id_org','$num_contract','$date_contract','$begin_arenda',
                         ' $end_arenda','$status')");
-       $db->setQuery ("UPDATE `tradingPlace`
+        $db->setQuery ("UPDATE `tradingPlace`
                        SET `rented` = '1'
                        WHERE `id_tradingPlace` = '$id_tr_place'");    
-
     }
     header('Location: ' . url('/web/admin/contract/showContract.php'));
 }
@@ -75,7 +74,7 @@ file_include('/layers/headerAdmin.php', 'Добавить контракт');
                <div class="div-selector">  
                     <select class="select"  name="status">
                         <option  value="1" <?= ($status == '1') ? 'selected' : '';?> >
-                        Действуйющий</option> 
+                        Действующий</option> 
                         <option  value="0" <?= ($status == '0') ? 'selected' : '';?> >
                         Не действующий</option>
                     </select>    

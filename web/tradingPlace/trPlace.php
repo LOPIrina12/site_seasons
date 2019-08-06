@@ -73,9 +73,7 @@
                             <span></span>
                         </div>
                     </div>
-                    <div class="table-item-img" >
-                    
-                        <img width="340px" height="230px" src="<?= url('/assets/img/tradingPlace/') . $product->image;?>">
+                    <div class="table-item-img" style="background-image: url(<?= url('/assets/img/tradingPlace/') . $product->image;?>)">
                     </div>
                 </div>
                 <div class="table-item-footer">
